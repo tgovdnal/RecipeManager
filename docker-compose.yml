@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=file:./dev.db
+    volumes:
+      - ./public/uploads:/app/public/uploads
+      - ./dev.db:/app/dev.db
+    restart: unless-stopped

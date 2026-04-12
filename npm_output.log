@@ -1,0 +1,23 @@
+
+> myapp@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.5
+  - Local:        http://localhost:3000
+  - Environments: .env
+
+ ✓ Starting...
+> [PWA] PWA support is disabled
+> [PWA] PWA support is disabled
+ ✓ Ready in 4s
+ ○ Compiling / ...
+ ✓ Compiled / in 4.2s (599 modules)
+ ✓ Compiled in 489ms (274 modules)
+ GET / 200 in 4739ms
+ ○ Compiling /recipe/[id] ...
+ ✓ Compiled /recipe/[id] in 5.3s (750 modules)
+ GET /recipe/cmn5uiyz30000hfx0zncq84as 200 in 5999ms
+ ○ Compiling /recipe/create ...
+ ✓ Compiled /recipe/create in 1139ms (926 modules)
+ ✓ Compiled in 1361ms (373 modules)
+ ✓ Compiled in 235ms (373 modules)
