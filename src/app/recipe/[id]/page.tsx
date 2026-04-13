@@ -1,11 +1,11 @@
-import { PrismaClient } from '@prisma/client';
+export const dynamic = 'force-dynamic';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Edit, ChevronLeft } from 'lucide-react';
 import DeleteButton from './DeleteButton';
 import RecipeInteractive from './RecipeInteractive';
+import { prisma } from '@/lib/prisma';
 
-const prisma = new PrismaClient();
 
 export default async function RecipeDetailsPage({ params }: { params: { id: string } }) {
   const recipe = await prisma.recipe.findUnique({
