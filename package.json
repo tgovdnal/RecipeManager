@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "install-deps": "npm install > npm_install2.log 2>&1",
+    "dev": "next dev > npm_dev.log 2>&1",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

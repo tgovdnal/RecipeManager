@@ -1,0 +1,169 @@
+  ▲ Next.js 14.2.5
+  - Local:        http://localhost:3000
+  - Environments: .env
+
+ ✓ Starting...
+ ○ (pwa) PWA support is disabled.
+ ✓ Ready in 7.3s
+ ○ Compiling / ...
+ ⨯ ./src/app/page.tsx
+Error: 
+  [31mx[0m the name `prisma` is defined multiple times
+   ,-[[36;1;4mC:\Users\slandvogt\source\repos\RecipeManager\src\app\page.tsx[0m:2:1]
+ [2m2[0m | import RecipeCard from '@/components/RecipeCard';
+ [2m3[0m | import Header from '@/components/Header';
+ [2m4[0m | import { Search } from 'lucide-react';
+ [2m5[0m | import { prisma } from '@/lib/prisma';
+   : [31;1m         ^^^|^^[0m
+   :             [31;1m`-- [31;1mprevious definition of `prisma` here[0m[0m
+ [2m6[0m | 
+ [2m7[0m | const prisma = new PrismaClient();
+   : [33;1m      ^^^|^^[0m
+   :          [33;1m`-- [33;1m`prisma` redefined here[0m[0m
+ [2m8[0m | 
+ [2m9[0m | export default async function Home({
+ [2m9[0m |   searchParams,
+   `----
+
+Import trace for requested module:
+./src/app/page.tsx
+ ⨯ ./src/app/page.tsx
+Error: 
+  [31mx[0m the name `prisma` is defined multiple times
+   ,-[[36;1;4mC:\Users\slandvogt\source\repos\RecipeManager\src\app\page.tsx[0m:2:1]
+ [2m2[0m | import RecipeCard from '@/components/RecipeCard';
+ [2m3[0m | import Header from '@/components/Header';
+ [2m4[0m | import { Search } from 'lucide-react';
+ [2m5[0m | import { prisma } from '@/lib/prisma';
+   : [31;1m         ^^^|^^[0m
+   :             [31;1m`-- [31;1mprevious definition of `prisma` here[0m[0m
+ [2m6[0m | 
+ [2m7[0m | const prisma = new PrismaClient();
+   : [33;1m      ^^^|^^[0m
+   :          [33;1m`-- [33;1m`prisma` redefined here[0m[0m
+ [2m8[0m | 
+ [2m9[0m | export default async function Home({
+ [2m9[0m |   searchParams,
+   `----
+
+Import trace for requested module:
+./src/app/page.tsx
+ ○ (pwa) PWA support is disabled.
+ ⨯ ./src/app/page.tsx
+Error: 
+  [31mx[0m the name `prisma` is defined multiple times
+   ,-[[36;1;4mC:\Users\slandvogt\source\repos\RecipeManager\src\app\page.tsx[0m:2:1]
+ [2m2[0m | import RecipeCard from '@/components/RecipeCard';
+ [2m3[0m | import Header from '@/components/Header';
+ [2m4[0m | import { Search } from 'lucide-react';
+ [2m5[0m | import { prisma } from '@/lib/prisma';
+   : [31;1m         ^^^|^^[0m
+   :             [31;1m`-- [31;1mprevious definition of `prisma` here[0m[0m
+ [2m6[0m | 
+ [2m7[0m | const prisma = new PrismaClient();
+   : [33;1m      ^^^|^^[0m
+   :          [33;1m`-- [33;1m`prisma` redefined here[0m[0m
+ [2m8[0m | 
+ [2m9[0m | export default async function Home({
+ [2m9[0m |   searchParams,
+   `----
+
+Import trace for requested module:
+./src/app/page.tsx
+ GET / 500 in 12737ms
+ ⨯ ./src/app/page.tsx
+Error: 
+  [31mx[0m the name `prisma` is defined multiple times
+   ,-[[36;1;4mC:\Users\slandvogt\source\repos\RecipeManager\src\app\page.tsx[0m:2:1]
+ [2m2[0m | import RecipeCard from '@/components/RecipeCard';
+ [2m3[0m | import Header from '@/components/Header';
+ [2m4[0m | import { Search } from 'lucide-react';
+ [2m5[0m | import { prisma } from '@/lib/prisma';
+   : [31;1m         ^^^|^^[0m
+   :             [31;1m`-- [31;1mprevious definition of `prisma` here[0m[0m
+ [2m6[0m | 
+ [2m7[0m | const prisma = new PrismaClient();
+   : [33;1m      ^^^|^^[0m
+   :          [33;1m`-- [33;1m`prisma` redefined here[0m[0m
+ [2m8[0m | 
+ [2m9[0m | export default async function Home({
+ [2m9[0m |   searchParams,
+   `----
+
+Import trace for requested module:
+./src/app/page.tsx
+ GET /_next/static/webpack/d22d213d82a75ac3.webpack.hot-update.json 500 in 294ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 500 in 45ms
+ ✓ Compiled /favicon.ico in 850ms (832 modules)
+ GET /_next/static/webpack/d22d213d82a75ac3.webpack.hot-update.json 404 in 1030ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 65ms
+ GET / 200 in 72ms
+ ⨯ ./src/app/recipe/[id]/page.tsx
+Error: 
+  [31mx[0m Expected ',', got 'className'
+    ,-[[36;1;4mC:\Users\slandvogt\source\repos\RecipeManager\src\app\recipe\[id]\page.tsx[0m:52:1]
+ [2m52[0m |         </div>
+ [2m53[0m |       </header>
+ [2m54[0m | 
+ [2m55[0m |       <main className="container mx-auto max-w-5xl px-4">
+    : [31;1m            ^^^^^^^^^[0m
+ [2m56[0m |                 />
+ [2m57[0m |               ) : (
+ [2m57[0m |                 <ChefHat className="text-emerald-200" size={120} />
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/recipe/[id]/page.tsx
+ GET /recipe/cmnvorpux000094ghsujqz6dp 500 in 23ms
+ GET /favicon.ico 500 in 20ms
+ ○ Compiling /recipe/[id] ...
+ GET / 500 in 14ms
+ GET / 500 in 16ms
+ GET /favicon.ico 500 in 21ms
+ ✓ Compiled /_not-found in 295ms (833 modules)
+ GET /_next/static/webpack/d22d213d82a75ac3.webpack.hot-update.json 404 in 366ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 58ms
+ GET / 200 in 71ms
+ ✓ Compiled in 97ms (459 modules)
+ ✓ Compiled in 128ms (459 modules)
+ ✓ Compiled in 97ms (459 modules)
+ ○ Compiling /recipe/[id] ...
+ ✓ Compiled /recipe/[id] in 1123ms (975 modules)
+ ✓ Compiled in 268ms (470 modules)
+ ✓ Compiled in 776ms (985 modules)
+ ✓ Compiled in 263ms (989 modules)
+ ✓ Compiled in 279ms (989 modules)
+ ✓ Compiled in 185ms (989 modules)
+ ✓ Compiled in 162ms (989 modules)
+ GET /recipe/cmnvorpux000094ghsujqz6dp 200 in 106ms
+ GET /recipe/cmnvorpux000094ghsujqz6dp 200 in 85ms
+ ✓ Compiled in 226ms (470 modules)
+ ✓ Compiled in 321ms (985 modules)
+ ✓ Compiled in 218ms (985 modules)
+ ✓ Compiled in 185ms (983 modules)
+ ✓ Compiled in 162ms (982 modules)
+ ✓ Compiled in 375ms (980 modules)
+ ✓ Compiled in 225ms (966 modules)
+ ✓ Compiled in 317ms (968 modules)
+ ✓ Compiled in 262ms (894 modules)
+ ○ Compiling /recipe/create ...
+ ✓ Compiled /recipe/create in 929ms (1097 modules)
+ ✓ Compiled /favicon.ico in 114ms (603 modules)
+ GET /favicon.ico 200 in 211ms
+ ✓ Compiled in 292ms (1133 modules)
+ ✓ Compiled in 139ms (538 modules)
+ ✓ Compiled in 309ms (1103 modules)
+ ✓ Compiled in 368ms (989 modules)
+ ✓ Compiled in 237ms (989 modules)
+ ✓ Compiled in 215ms (989 modules)
+ ✓ Compiled in 278ms (989 modules)
+ ✓ Compiled in 105ms (523 modules)
+ ✓ Compiled in 111ms (523 modules)
+ ✓ Compiled in 170ms (523 modules)
+ ✓ Compiled in 282ms (989 modules)

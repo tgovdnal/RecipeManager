@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#3e0400",
+                    "secondary": "#615e5b",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#5f5c4f",
+                    "surface-container-high": "#eae7e7",
+                    "on-primary-fixed-variant": "#8c1803",
+                    "secondary-fixed-dim": "#cac6c2",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#f0eded",
+                    "on-secondary-fixed": "#1d1b19",
+                    "primary-fixed-dim": "#ffb4a5",
+                    "on-background": "#1c1b1b",
+                    "inverse-on-surface": "#f3f0ef",
+                    "surface-container-highest": "#e5e2e1",
+                    "surface-tint": "#ae3119",
+                    "on-surface": "#1c1b1b",
+                    "on-tertiary-fixed-variant": "#4a473b",
+                    "surface-container-low": "#f6f3f2",
+                    "secondary-fixed": "#e7e1de",
+                    "inverse-primary": "#ffb4a5",
+                    "outline": "#8d716b",
+                    "on-secondary-container": "#676461",
+                    "surface-variant": "#e5e2e1",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#e1bfb8",
+                    "primary": "#ab2e17",
+                    "background": "#fcf9f8",
+                    "tertiary-fixed-dim": "#ccc6b7",
+                    "inverse-surface": "#313030",
+                    "tertiary-fixed": "#e8e2d2",
+                    "on-surface-variant": "#59413c",
+                    "on-secondary-fixed-variant": "#494644",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#1e1c12",
+                    "secondary-container": "#e7e1de",
+                    "primary-fixed": "#ffdad3",
+                    "surface-dim": "#dcd9d9",
+                    "surface": "#fcf9f8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#fcf9f8",
+                    "on-tertiary-container": "#fffbff",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#787467",
+                    "on-primary-container": "#fffbff",
+                    "primary-container": "#cd462d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .font-serif { font-family: 'Noto Serif', serif; }
+        .font-label { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fcf9f8]/80 dark:bg-[#1c1b1b]/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold font-serif text-[#1c1b1b] dark:text-[#fcf9f8] tracking-tight">SilkSavor</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#ab2e17] dark:text-[#cd462d] border-b-2 border-[#ab2e17] pb-1 font-label text-sm uppercase tracking-wider" href="#">Recipes</a>
+<a class="text-[#1c1b1b] dark:text-[#fcf9f8] hover:text-[#ab2e17] transition-colors font-label text-sm uppercase tracking-wider" href="#">Techniques</a>
+<a class="text-[#1c1b1b] dark:text-[#fcf9f8] hover:text-[#ab2e17] transition-colors font-label text-sm uppercase tracking-wider" href="#">Seasonal</a>
+<a class="text-[#1c1b1b] dark:text-[#fcf9f8] hover:text-[#ab2e17] transition-colors font-label text-sm uppercase tracking-wider" href="#">Journal</a>
+<a class="text-[#1c1b1b] dark:text-[#fcf9f8] hover:text-[#ab2e17] transition-colors font-label text-sm uppercase tracking-wider" href="#">Shop</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="hover:scale-[1.02] transition-transform duration-200">
+<span class="material-symbols-outlined text-primary">bookmark</span>
+</button>
+<button class="hover:scale-[1.02] transition-transform duration-200">
+<span class="material-symbols-outlined text-primary">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-6 mb-16">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 relative group">
+<div class="absolute -inset-4 bg-surface-container-high rounded-xl -z-10 transform -rotate-1"></div>
+<img alt="Creamy Asparagus Risotto" class="w-full h-[500px] object-cover rounded-lg shadow-sm group-hover:scale-[1.01] transition-transform duration-500" data-alt="Close-up of vibrant green creamy asparagus risotto topped with shaved parmesan and lemon zest on a ceramic plate, soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKZdkkXQg6pJnP20jmqujILWpNjvrWA0CEh6LSVJkwkIVv4x5VXEcyhG5I3kznRBiyYwlAJF5csQHKxszi0McHjevHI4N9gUtKTvrhJiUEi81Fd9B51Ud6EqO1ynJ46DbBUVJ6LwMKd6wIVFxDgAaFGj2jBy7j99SqRZEDwZT4XUkGhu1n5MBW5TRb-NBhiFsCojG_pw66n0m_-9ph-U4Jv9DpTOhsyW2OWPWUCxiTvOvUU-d3aACQcPZJ2sVXXN4pttg1Y_gbC1g"/>
+</div>
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="flex gap-2">
+<span class="bg-surface-container-highest px-3 py-1 rounded-full font-label text-[10px] font-bold text-primary tracking-widest uppercase">Seasonal Favorite</span>
+<span class="bg-surface-container-highest px-3 py-1 rounded-full font-label text-[10px] font-bold text-tertiary tracking-widest uppercase">Gluten Free</span>
+</div>
+<h1 class="text-5xl md:text-6xl font-headline text-on-surface leading-tight tracking-tight">Creamy Asparagus Risotto</h1>
+<p class="text-lg text-on-surface-variant font-body leading-relaxed max-w-md">
+                        A celebration of spring on a plate. Velvety Arborio rice folded with vibrant asparagus purée, finished with aged Pecorino and a hint of lemon.
+                    </p>
+<div class="grid grid-cols-3 gap-4 pt-4 border-t border-outline-variant/20">
+<div>
+<p class="font-label text-[10px] uppercase tracking-tighter text-on-surface-variant">Prep Time</p>
+<p class="font-headline text-xl">15 min</p>
+</div>
+<div>
+<p class="font-label text-[10px] uppercase tracking-tighter text-on-surface-variant">Cook Time</p>
+<p class="font-headline text-xl">30 min</p>
+</div>
+<div>
+<p class="font-label text-[10px] uppercase tracking-tighter text-on-surface-variant">Servings</p>
+<p class="font-headline text-xl">4 People</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Grid -->
+<section class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- Left Column: Ingredients & Nutrition -->
+<aside class="lg:col-span-4 space-y-12">
+<div class="bg-surface-container-low p-8 rounded-lg">
+<h2 class="text-2xl font-headline mb-8 flex items-center gap-3">
+                        Ingredients
+                        <span class="h-px flex-grow bg-outline-variant/30"></span>
+</h2>
+<ul class="space-y-4">
+<li class="flex items-start gap-3 group cursor-pointer">
+<div class="mt-1 w-5 h-5 rounded border-2 border-primary/30 group-hover:border-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 text-primary">check</span>
+</div>
+<span class="text-on-surface font-body">1.5 cups Arborio rice</span>
+</li>
+<li class="flex items-start gap-3 group cursor-pointer">
+<div class="mt-1 w-5 h-5 rounded border-2 border-primary/30 group-hover:border-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 text-primary">check</span>
+</div>
+<span class="text-on-surface font-body">1 lb fresh Asparagus, trimmed</span>
+</li>
+<li class="flex items-start gap-3 group cursor-pointer">
+<div class="mt-1 w-5 h-5 rounded border-2 border-primary/30 group-hover:border-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 text-primary">check</span>
+</div>
+<span class="text-on-surface font-body">5-6 cups Vegetable broth, warm</span>
+</li>
+<li class="flex items-start gap-3 group cursor-pointer">
+<div class="mt-1 w-5 h-5 rounded border-2 border-primary/30 group-hover:border-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 text-primary">check</span>
+</div>
+<span class="text-on-surface font-body">1/2 cup Dry white wine (Pinot Grigio)</span>
+</li>
+<li class="flex items-start gap-3 group cursor-pointer">
+<div class="mt-1 w-5 h-5 rounded border-2 border-primary/30 group-hover:border-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 text-primary">check</span>
+</div>
+<span class="text-on-surface font-body">2 Shallots, finely minced</span>
+</li>
+<li class="flex items-start gap-3 group cursor-pointer">
+<div class="mt-1 w-5 h-5 rounded border-2 border-primary/30 group-hover:border-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 text-primary">check</span>
+</div>
+<span class="text-on-surface font-body">1/2 cup Grated Pecorino Romano</span>
+</li>
+<li class="flex items-start gap-3 group cursor-pointer">
+<div class="mt-1 w-5 h-5 rounded border-2 border-primary/30 group-hover:border-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 text-primary">check</span>
+</div>
+<span class="text-on-surface font-body">2 tbsp Unsalted butter</span>
+</li>
+</ul>
+</div>
+<div class="bg-surface-container-high p-8 rounded-lg">
+<h3 class="font-label text-xs font-bold uppercase tracking-widest text-primary mb-6">Nutritional Info <span class="text-[10px] text-on-surface-variant font-normal normal-case italic">(per serving)</span></h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-b border-outline-variant/20 pb-2">
+<span class="font-body text-sm">Calories</span>
+<span class="font-headline">380 kcal</span>
+</div>
+<div class="flex justify-between items-center border-b border-outline-variant/20 pb-2">
+<span class="font-body text-sm">Proteins</span>
+<span class="font-headline">12g</span>
+</div>
+<div class="flex justify-between items-center border-b border-outline-variant/20 pb-2">
+<span class="font-body text-sm">Fats</span>
+<span class="font-headline">14g</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body text-sm">Carbohydrates</span>
+<span class="font-headline">52g</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Right Column: Instructions -->
+<article class="lg:col-span-8">
+<h2 class="text-3xl font-headline mb-12">The Preparation</h2>
+<div class="space-y-16">
+<!-- Step 1 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<div class="md:col-span-1">
+<span class="text-4xl font-headline text-primary-container opacity-40">01</span>
+</div>
+<div class="md:col-span-11 space-y-4">
+<h4 class="text-xl font-headline">Prepare the Asparagus</h4>
+<p class="text-on-surface-variant font-body leading-relaxed">
+                                Blanch the asparagus spears in boiling salted water for 2 minutes. Reserve the tips for garnish and blend the stalks with a splash of broth until smooth and vibrant green.
+                            </p>
+<img alt="Preparing Asparagus" class="w-full h-48 object-cover rounded-lg" data-alt="Close-up of fresh green asparagus stalks being sliced on a wooden board, natural light, kitchen setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzqsTq-eqC2y5Goye9DsNYZ6_Cn8fWYXBA8UUSYNeGYrT66iqbteX7nUoIf9gy5q9fKimRRUD1ghM-OqyEUKk9bpNzWLasZdStAI48gr7EFdE0bvwfd2guU4VDaXK_Ia2ShgvgIlG4v9pe30EMemWbpMVVp5A7pKtW91zmddAAL_60Cmjh9st_wBjTaQR7gIeqStF2cqRo-4pSGT1XMYkoD4al5_O8soJDKCV3i_jBvRaylPQSzFlE7gEl9vqxXTdchOTZWJOZd3g"/>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<div class="md:col-span-1">
+<span class="text-4xl font-headline text-primary-container opacity-40">02</span>
+</div>
+<div class="md:col-span-11 space-y-4">
+<h4 class="text-xl font-headline">The Soffritto</h4>
+<p class="text-on-surface-variant font-body leading-relaxed">
+                                Sauté finely minced shallots in butter until translucent. Add the Arborio rice and toast for 2-3 minutes until the edges are transparent, releasing a nutty aroma.
+                            </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<div class="md:col-span-1">
+<span class="text-4xl font-headline text-primary-container opacity-40">03</span>
+</div>
+<div class="md:col-span-11 space-y-4">
+<h4 class="text-xl font-headline">The Slow Pour</h4>
+<p class="text-on-surface-variant font-body leading-relaxed">
+                                Deglaze with white wine. Once absorbed, add warm broth one ladle at a time, stirring constantly. This friction is what creates the legendary creaminess of a true risotto.
+                            </p>
+<img alt="Risotto cooking" class="w-full h-48 object-cover rounded-lg" data-alt="Steam rising from a pan where rice is being stirred with a wooden spoon, warm ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_DIf6APqGvZNWNS3PlMefccg150REKQMSYMepJW_7c9P91zWb3-r5ti0Q2Cl9ZYgFAI4391gW8iIhpYex8B8H2TJwA-qRaQlCJm6LZvWpIW67aXpgUwWNtQVSOx7f5Hhd4jh2JN1-UpPQcadtc5do1xTzlNq88hPz-IAt7E9o4Ux9Kv8l0gQ3gtHG--prR8rzMNn_TxRrwf03M0uD5C9Z2pMki4UQUuMFJr-46P_xC2IBPwBw2WLDEs_X-Jr6qzQq9fOdr1w_uM4"/>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<div class="md:col-span-1">
+<span class="text-4xl font-headline text-primary-container opacity-40">04</span>
+</div>
+<div class="md:col-span-11 space-y-4">
+<h4 class="text-xl font-headline">The Finish (Mantecatura)</h4>
+<p class="text-on-surface-variant font-body leading-relaxed">
+                                Stir in the asparagus purée for that brilliant green hue. Remove from heat and beat in cold butter and Pecorino Romano vigorously. Fold in the reserved asparagus tips and serve immediately.
+                            </p>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- Newsletter / Community Section (Asymmetric Bento) -->
+<section class="max-w-7xl mx-auto px-6 mt-32 mb-16">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-primary-container rounded-lg p-12 text-on-primary-container flex flex-col justify-center gap-6">
+<h2 class="text-4xl font-headline leading-tight">Master the Art of Italian Cooking</h2>
+<p class="font-body opacity-90 max-w-lg">Join our weekly digest for exclusive techniques from Mediterranean kitchens, seasonal guides, and the stories behind the recipes.</p>
+<div class="flex flex-col sm:flex-row gap-4 max-w-md">
+<input class="bg-surface/10 border-none rounded-lg px-6 py-4 placeholder:text-on-primary-container/60 focus:ring-2 focus:ring-on-primary-container/30" placeholder="Email address" type="email"/>
+<button class="bg-on-primary-container text-primary-container px-8 py-4 rounded-full font-label font-bold uppercase tracking-widest text-xs hover:scale-105 transition-transform">Subscribe</button>
+</div>
+</div>
+<div class="bg-surface-container-highest rounded-lg overflow-hidden relative p-8 flex flex-col justify-end">
+<img alt="Kitchen" class="absolute inset-0 w-full h-full object-cover opacity-20" data-alt="Interior of a rustic, high-end kitchen with hanging copper pots and fresh herbs on the counter, soft morning sun through window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCduN3dzDnDtmcTSu8bCMUrx8AIQYXd_XJBSojW_TfQ9LhHxFjJV1Sd_V7dyS78jdlOS3vVS7S9Zb48yekig9nsN7wioYTJm6-NtiTWMvVjNR4MblJ3U9jORH7Yhro_l02N1dX1aeh6cx3cLkqaRpdBcrFEVk9kmgSQJYxjzOj0h4Fqbe0C9R_CL3O0aalvE4C1FvvYHV4BZPR2dPuPUCT04NHVYhRFeKYNUgjVCjLMo56wvb5qhZBbcFpDSiBdP4hEsPIzA7mG5sE"/>
+<div class="relative z-10">
+<h3 class="text-xl font-headline mb-2">Recipe Journal</h3>
+<p class="text-sm font-body text-on-surface-variant mb-6">Notes from our latest culinary expedition to Tuscany.</p>
+<a class="inline-flex items-center gap-2 font-label text-xs font-bold text-primary uppercase tracking-widest" href="#">
+                            Read Journal <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-24 rounded-t-lg bg-[#eae7e7] dark:bg-[#1c1b1b]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 gap-8 w-full max-w-7xl mx-auto">
+<div class="text-lg font-serif italic text-[#1c1b1b] dark:text-[#fcf9f8]">SilkSavor</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:text-[#ab2e17] font-body text-sm hover:underline decoration-[#ab2e17]/30 transition-all" href="#">About Us</a>
+<a class="text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:text-[#ab2e17] font-body text-sm hover:underline decoration-[#ab2e17]/30 transition-all" href="#">Press Kitchen</a>
+<a class="text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:text-[#ab2e17] font-body text-sm hover:underline decoration-[#ab2e17]/30 transition-all" href="#">Privacy Policy</a>
+<a class="text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:text-[#ab2e17] font-body text-sm hover:underline decoration-[#ab2e17]/30 transition-all" href="#">Terms of Service</a>
+<a class="text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:text-[#ab2e17] font-body text-sm hover:underline decoration-[#ab2e17]/30 transition-all" href="#">Sustainability</a>
+</div>
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant/60">
+                © 2024 SilkSavor. Part of The Digital Epicurean Culinary Group.
+            </p>
+</div>
+</footer>
+</body></html>

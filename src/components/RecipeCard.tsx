@@ -1,7 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import { Clock, Users, ChefHat } from 'lucide-react';
-import { clsx } from 'clsx';
+
 
 type RecipeCardProps = {
   recipe: {
@@ -24,62 +22,31 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
     tags = recipe.tags ? recipe.tags.split(',') : [];
   }
 
-  const difficultyColor = {
-    'Einfach': 'bg-green-100 text-green-800',
-    'Mittel': 'bg-yellow-100 text-yellow-800',
-    'Schwer': 'bg-red-100 text-red-800',
-  }[recipe.difficulty] || 'bg-gray-100 text-gray-800';
-
   return (
-    <Link href={`/recipe/${recipe.id}`}>
-      <div className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden border border-gray-100 flex flex-col h-full">
-        <div className="relative h-48 w-full bg-emerald-50 overflow-hidden flex items-center justify-center">
+    <div className="group">
+      <Link href={`/recipe/${recipe.id}`}>
+        <div className="rounded-lg overflow-hidden mb-4 relative bg-surface-container-high editorial-shadow aspect-[3/4] flex justify-center items-center">
           {recipe.imageUrl ? (
-            <Image
+            <img
               src={recipe.imageUrl}
               alt={recipe.title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           ) : (
-            <ChefHat className="text-emerald-200" size={64} />
+            <span className="material-symbols-outlined text-6xl text-on-surface-variant opacity-30 group-hover:scale-105 transition-transform duration-500">restaurant</span>
           )}
-          <div className="absolute top-3 right-3 flex flex-wrap gap-1 justify-end">
-            <span className={clsx("px-2 py-1 text-xs font-semibold rounded-full shadow-sm", difficultyColor)}>
-              {recipe.difficulty}
-            </span>
-          </div>
+          <button className="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-full shadow-sm hover:text-primary transition-colors">
+            <span className="material-symbols-outlined text-sm">bookmark</span>
+          </button>
         </div>
-
-        <div className="p-4 flex flex-col flex-grow">
-          <h3 className="font-bold text-lg text-gray-900 line-clamp-1 mb-1">{recipe.title}</h3>
-          <p className="text-gray-600 text-sm line-clamp-2 mb-4 flex-grow">{recipe.description}</p>
-
-          <div className="flex items-center text-sm text-gray-500 mb-3 space-x-4">
-            <div className="flex items-center">
-              <Clock size={16} className="mr-1 text-emerald-600" />
-              <span>{recipe.cookingTimeMinutes} Min.</span>
-            </div>
-            <div className="flex items-center">
-              <Users size={16} className="mr-1 text-emerald-600" />
-              <span>{recipe.servings} Port.</span>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-1 mt-auto">
-            {tags.slice(0, 3).map((tag, i) => (
-              <span key={i} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-md">
-                {tag}
-              </span>
-            ))}
-            {tags.length > 3 && (
-              <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-md">
-                +{tags.length - 3}
-              </span>
-            )}
-          </div>
+        <span className="text-[10px] font-label font-bold tracking-widest text-tertiary uppercase">{tags[0] || 'REZEPT'}</span>
+        <h3 className="font-headline text-xl text-on-surface mt-2 group-hover:text-primary transition-colors line-clamp-1">{recipe.title}</h3>
+        <div className="flex items-center gap-4 mt-3 text-on-surface-variant">
+          <span className="text-xs font-label">{recipe.cookingTimeMinutes} MIN</span>
+          <span className="text-xs font-label">•</span>
+          <span className="text-xs font-label uppercase">{recipe.difficulty}</span>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }

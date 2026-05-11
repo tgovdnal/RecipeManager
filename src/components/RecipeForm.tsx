@@ -5,7 +5,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Plus, Trash2, Save, X, Image as ImageIcon } from 'lucide-react';
 import { createRecipe, updateRecipe } from '@/app/actions';
 
 const recipeSchema = z.object({
@@ -138,87 +137,85 @@ export default function RecipeForm({ initialData }: RecipeFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100 max-w-4xl mx-auto my-8">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-12 bg-surface-container-lowest p-8 md:p-12 rounded-lg editorial-shadow border border-outline-variant/10 max-w-4xl mx-auto my-8">
       {error && (
-        <div className="bg-red-50 text-red-600 p-4 rounded-lg text-sm mb-6">
+        <div className="bg-error-container text-on-error-container p-6 rounded-lg text-sm font-body">
           {error}
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Left Column - Basics */}
-        <div className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="space-y-8">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Rezeptname</label>
+            <label className="block text-[10px] font-label font-bold tracking-widest text-on-surface-variant uppercase mb-2">Rezeptname</label>
             <input
               {...register("title")}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+              className="w-full bg-surface-container-high border-none rounded-lg px-6 py-4 text-sm font-label focus:ring-2 focus:ring-primary/40 focus:outline-none"
               placeholder="z.B. Spaghetti Carbonara"
             />
-            {errors.title && <p className="mt-1 text-sm text-red-600">{errors.title.message}</p>}
+            {errors.title && <p className="mt-2 text-xs text-error font-body">{errors.title.message}</p>}
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Beschreibung</label>
+            <label className="block text-[10px] font-label font-bold tracking-widest text-on-surface-variant uppercase mb-2">Beschreibung</label>
             <textarea
               {...register("description")}
-              rows={3}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+              rows={4}
+              className="w-full bg-surface-container-high border-none rounded-lg px-6 py-4 text-sm font-body focus:ring-2 focus:ring-primary/40 focus:outline-none"
               placeholder="Eine kurze Beschreibung deines Rezepts..."
             />
-            {errors.description && <p className="mt-1 text-sm text-red-600">{errors.description.message}</p>}
+            {errors.description && <p className="mt-2 text-xs text-error font-body">{errors.description.message}</p>}
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Dauer (Minuten)</label>
+              <label className="block text-[10px] font-label font-bold tracking-widest text-on-surface-variant uppercase mb-2">Dauer (Minuten)</label>
               <input
                 type="number"
                 {...register("cookingTimeMinutes", { valueAsNumber: true })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                className="w-full bg-surface-container-high border-none rounded-lg px-6 py-4 text-sm font-label focus:ring-2 focus:ring-primary/40 focus:outline-none"
               />
-              {errors.cookingTimeMinutes && <p className="mt-1 text-sm text-red-600">{errors.cookingTimeMinutes.message}</p>}
+              {errors.cookingTimeMinutes && <p className="mt-2 text-xs text-error font-body">{errors.cookingTimeMinutes.message}</p>}
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Portionen</label>
+              <label className="block text-[10px] font-label font-bold tracking-widest text-on-surface-variant uppercase mb-2">Portionen</label>
               <input
                 type="number"
                 {...register("servings", { valueAsNumber: true })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                className="w-full bg-surface-container-high border-none rounded-lg px-6 py-4 text-sm font-label focus:ring-2 focus:ring-primary/40 focus:outline-none"
               />
-              {errors.servings && <p className="mt-1 text-sm text-red-600">{errors.servings.message}</p>}
+              {errors.servings && <p className="mt-2 text-xs text-error font-body">{errors.servings.message}</p>}
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Schwierigkeit</label>
+            <label className="block text-[10px] font-label font-bold tracking-widest text-on-surface-variant uppercase mb-2">Schwierigkeit</label>
             <select
               {...register("difficulty")}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+              className="w-full bg-surface-container-high border-none rounded-lg px-6 py-4 text-sm font-label focus:ring-2 focus:ring-primary/40 focus:outline-none"
             >
               <option value="Einfach">Einfach</option>
               <option value="Mittel">Mittel</option>
               <option value="Schwer">Schwer</option>
             </select>
-            {errors.difficulty && <p className="mt-1 text-sm text-red-600">{errors.difficulty.message}</p>}
+            {errors.difficulty && <p className="mt-2 text-xs text-error font-body">{errors.difficulty.message}</p>}
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Tags (kommagetrennt)</label>
+            <label className="block text-[10px] font-label font-bold tracking-widest text-on-surface-variant uppercase mb-2">Tags (kommagetrennt)</label>
             <input
               {...register("tags")}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+              className="w-full bg-surface-container-high border-none rounded-lg px-6 py-4 text-sm font-label focus:ring-2 focus:ring-primary/40 focus:outline-none"
               placeholder="Vegetarisch, Schnell, Pasta"
             />
           </div>
         </div>
 
-        {/* Right Column - Image & Meta */}
-        <div className="space-y-6">
+        <div className="space-y-8">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Bild</label>
-            <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors relative">
-              <div className="space-y-1 text-center">
+            <label className="block text-[10px] font-label font-bold tracking-widest text-on-surface-variant uppercase mb-2">Bild</label>
+            <div className="mt-2 flex flex-col items-center justify-center px-6 pt-5 pb-6 border-2 border-outline-variant border-dashed rounded-lg bg-surface-container-high hover:bg-surface-container-highest transition-colors relative min-h-[16rem]">
+              <div className="space-y-2 text-center flex flex-col items-center w-full">
                 {imagePreview ? (
                   <div className="relative w-full h-48 overflow-hidden rounded-md">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -229,21 +226,21 @@ export default function RecipeForm({ initialData }: RecipeFormProps) {
                         setImagePreview(null);
                         setSelectedFile(null);
                       }}
-                      className="absolute top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600"
+                      className="absolute top-2 right-2 p-2 bg-error text-on-error rounded-full hover:bg-error/90 flex items-center justify-center"
                     >
-                      <X size={16} />
+                      <span className="material-symbols-outlined text-sm">close</span>
                     </button>
                   </div>
                 ) : (
                   <>
-                    <ImageIcon className="mx-auto h-12 w-12 text-gray-400" />
-                    <div className="flex text-sm text-gray-600 justify-center">
-                      <label className="relative cursor-pointer bg-white rounded-md font-medium text-emerald-600 hover:text-emerald-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-emerald-500">
-                        <span>Lade eine Datei hoch</span>
+                    <span className="material-symbols-outlined text-4xl text-on-surface-variant mb-4 opacity-50">image</span>
+                    <div className="flex text-sm text-on-surface justify-center">
+                      <label className="relative cursor-pointer bg-surface-container-lowest rounded-md px-4 py-2 font-label font-bold text-xs tracking-widest text-primary hover:text-primary-container focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary/40 editorial-shadow uppercase">
+                        <span>Datei hochladen</span>
                         <input type="file" className="sr-only" accept="image/jpeg,image/png,image/webp" onChange={handleImageChange} />
                       </label>
                     </div>
-                    <p className="text-xs text-gray-500">PNG, JPG, WEBP bis zu 5MB</p>
+                    <p className="text-xs text-on-surface-variant font-body mt-4">PNG, JPG, WEBP bis zu 5MB</p>
                   </>
                 )}
               </div>
@@ -252,90 +249,89 @@ export default function RecipeForm({ initialData }: RecipeFormProps) {
         </div>
       </div>
 
-      <div className="border-t border-gray-200 pt-8">
-        <div className="flex items-center justify-between mb-4">
-          <label className="block text-lg font-medium text-gray-900">Zutaten</label>
+      <div className="border-t border-outline-variant/30 pt-12">
+        <div className="flex items-center justify-between mb-6">
+          <label className="block font-headline text-2xl text-on-surface">Zutaten</label>
           <button
             type="button"
             onClick={() => appendIngredient({ value: "" })}
-            className="flex items-center text-sm text-emerald-600 hover:text-emerald-700 font-medium"
+            className="flex items-center text-xs font-label font-bold tracking-widest text-primary hover:text-primary-container uppercase transition-colors"
           >
-            <Plus size={16} className="mr-1" /> Zutat hinzufügen
+            <span className="material-symbols-outlined mr-1 text-sm">add</span> Zutat hinzufügen
           </button>
         </div>
-        <div className="space-y-3">
+        <div className="space-y-4">
           {ingredientFields.map((field, index) => (
-            <div key={field.id} className="flex gap-2">
+            <div key={field.id} className="flex gap-4">
               <input
                 {...register(`ingredients.${index}.value` as const)}
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                className="flex-1 w-full bg-surface-container-high border-none rounded-lg px-6 py-4 text-sm font-body focus:ring-2 focus:ring-primary/40 focus:outline-none"
                 placeholder="z.B. 200g Mehl"
               />
               <button
                 type="button"
                 onClick={() => removeIngredient(index)}
                 disabled={ingredientFields.length === 1}
-                className="p-2 text-gray-400 hover:text-red-500 disabled:opacity-50"
+                className="p-3 bg-surface-container-high rounded-lg text-on-surface-variant hover:text-error disabled:opacity-50 flex items-center justify-center transition-colors"
               >
-                <Trash2 size={20} />
+                <span className="material-symbols-outlined">delete</span>
               </button>
             </div>
           ))}
-          {errors.ingredients && <p className="mt-1 text-sm text-red-600">{errors.ingredients.message}</p>}
+          {errors.ingredients && <p className="mt-2 text-xs text-error font-body">{errors.ingredients.message}</p>}
         </div>
       </div>
 
-      <div className="border-t border-gray-200 pt-8">
-        <div className="flex items-center justify-between mb-4">
-          <label className="block text-lg font-medium text-gray-900">Zubereitungsschritte</label>
+      <div className="border-t border-outline-variant/30 pt-12">
+        <div className="flex items-center justify-between mb-6">
+          <label className="block font-headline text-2xl text-on-surface">Zubereitungsschritte</label>
           <button
             type="button"
             onClick={() => appendInstruction({ value: "" })}
-            className="flex items-center text-sm text-emerald-600 hover:text-emerald-700 font-medium"
+            className="flex items-center text-xs font-label font-bold tracking-widest text-primary hover:text-primary-container uppercase transition-colors"
           >
-            <Plus size={16} className="mr-1" /> Schritt hinzufügen
+            <span className="material-symbols-outlined mr-1 text-sm">add</span> Schritt hinzufügen
           </button>
         </div>
-        <div className="space-y-4">
+        <div className="space-y-6">
           {instructionFields.map((field, index) => (
-            <div key={field.id} className="flex gap-3 items-start">
-              <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-emerald-100 text-emerald-800 rounded-full font-bold">
+            <div key={field.id} className="flex gap-6 items-start">
+              <span className="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-surface-container-highest text-on-surface rounded-full font-label font-bold">
                 {index + 1}
               </span>
               <textarea
                 {...register(`instructions.${index}.value` as const)}
-                rows={2}
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                rows={3}
+                className="flex-1 w-full bg-surface-container-high border-none rounded-lg px-6 py-4 text-sm font-body focus:ring-2 focus:ring-primary/40 focus:outline-none"
                 placeholder="Zubereitungsschritt..."
               />
               <button
                 type="button"
                 onClick={() => removeInstruction(index)}
                 disabled={instructionFields.length === 1}
-                className="p-2 text-gray-400 hover:text-red-500 disabled:opacity-50 mt-1"
+                className="p-3 bg-surface-container-high rounded-lg text-on-surface-variant hover:text-error disabled:opacity-50 flex items-center justify-center transition-colors mt-1"
               >
-                <Trash2 size={20} />
+                <span className="material-symbols-outlined">delete</span>
               </button>
             </div>
           ))}
-          {errors.instructions && <p className="mt-1 text-sm text-red-600">{errors.instructions.message}</p>}
+          {errors.instructions && <p className="mt-2 text-xs text-error font-body">{errors.instructions.message}</p>}
         </div>
       </div>
 
-      <div className="border-t border-gray-200 pt-8 flex justify-end space-x-4">
+      <div className="border-t border-outline-variant/30 pt-12 flex justify-end gap-4">
         <button
           type="button"
           onClick={() => router.back()}
-          className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+          className="px-8 py-4 bg-surface-container-high text-on-surface rounded-full font-label font-bold text-sm tracking-widest hover:bg-surface-container-highest transition-colors"
         >
-          Abbrechen
+          ABBRECHEN
         </button>
         <button
           type="submit"
           disabled={isSubmitting}
-          className="flex items-center px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 font-medium disabled:opacity-70"
+          className="flex items-center px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-label font-bold text-sm tracking-widest hover:scale-[1.02] transition-transform duration-200 shadow-lg shadow-primary/20 disabled:opacity-70 uppercase"
         >
-          <Save size={18} className="mr-2" />
           {isSubmitting ? 'Speichert...' : (initialData ? 'Änderungen speichern' : 'Rezept erstellen')}
         </button>
       </div>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#3e0400",
+                    "secondary": "#615e5b",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#5f5c4f",
+                    "surface-container-high": "#eae7e7",
+                    "on-primary-fixed-variant": "#8c1803",
+                    "secondary-fixed-dim": "#cac6c2",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#f0eded",
+                    "on-secondary-fixed": "#1d1b19",
+                    "primary-fixed-dim": "#ffb4a5",
+                    "on-background": "#1c1b1b",
+                    "inverse-on-surface": "#f3f0ef",
+                    "surface-container-highest": "#e5e2e1",
+                    "surface-tint": "#ae3119",
+                    "on-surface": "#1c1b1b",
+                    "on-tertiary-fixed-variant": "#4a473b",
+                    "surface-container-low": "#f6f3f2",
+                    "secondary-fixed": "#e7e1de",
+                    "inverse-primary": "#ffb4a5",
+                    "outline": "#8d716b",
+                    "on-secondary-container": "#676461",
+                    "surface-variant": "#e5e2e1",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#e1bfb8",
+                    "primary": "#ab2e17",
+                    "background": "#fcf9f8",
+                    "tertiary-fixed-dim": "#ccc6b7",
+                    "inverse-surface": "#313030",
+                    "tertiary-fixed": "#e8e2d2",
+                    "on-surface-variant": "#59413c",
+                    "on-secondary-fixed-variant": "#494644",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#1e1c12",
+                    "secondary-container": "#e7e1de",
+                    "primary-fixed": "#ffdad3",
+                    "surface-dim": "#dcd9d9",
+                    "surface": "#fcf9f8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#fcf9f8",
+                    "on-tertiary-container": "#fffbff",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#787467",
+                    "on-primary-container": "#fffbff",
+                    "primary-container": "#cd462d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 8px 24px -4px rgba(28, 27, 27, 0.06);
+        }
+        .glass-nav {
+            background: rgba(252, 249, 248, 0.8);
+            backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<span class="text-2xl font-bold font-headline text-[#1c1b1b] dark:text-[#fcf9f8] tracking-tight">SilkSavor</span>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label text-sm tracking-wide text-[#1c1b1b] hover:text-[#ab2e17] transition-colors" href="#">Recipes</a>
+<a class="font-label text-sm tracking-wide text-[#1c1b1b] hover:text-[#ab2e17] transition-colors" href="#">Techniques</a>
+<a class="font-label text-sm tracking-wide text-[#1c1b1b] hover:text-[#ab2e17] transition-colors" href="#">Seasonal</a>
+<a class="font-label text-sm tracking-wide text-[#1c1b1b] hover:text-[#ab2e17] transition-colors" href="#">Journal</a>
+<a class="font-label text-sm tracking-wide text-[#1c1b1b] hover:text-[#ab2e17] transition-colors" href="#">Shop</a>
+</div>
+<div class="flex items-center gap-5">
+<button class="hover:scale-[1.02] transition-transform duration-200">
+<span class="material-symbols-outlined text-on-surface">bookmark</span>
+</button>
+<button class="hover:scale-[1.02] transition-transform duration-200">
+<span class="material-symbols-outlined text-on-surface">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-12">
+<!-- Hero Section: Featured Recipe -->
+<section class="max-w-7xl mx-auto px-6 mb-24">
+<div class="relative grid grid-cols-1 lg:grid-cols-12 gap-0 items-center">
+<!-- Asymmetric Layout: Image overlaps text container -->
+<div class="lg:col-span-7 z-10">
+<div class="rounded-lg overflow-hidden editorial-shadow">
+<img alt="Zesty Mediterranean Salmon Bowl" class="w-full aspect-[4/3] object-cover" data-alt="Gourmet Zesty Mediterranean Salmon Bowl with fresh herbs, quinoa, roasted vegetables, and lemon slices in soft natural daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAedrqiPYlK4EQGPmW12QdWnyt2epry_lSTMYNzq77OZpTVXEB75CWHttNmzTykO_z_PF9CDfclwGShzOTc7N1ZrAAdMXGnJ6cUOqBRYsDaKOroXNlXg9EsGGW84IRYUXxDUxutZOaSkpKNEtFQGUGZn8i8nKwAjWwarPoQm9IBVwagLqGqonJmibBgXdH7jsdYGvnvdZ4JCTbYJM3UwDSq3dv1B542aYhKihRfBiOHdMyaxdkRtqfXmIrt2mBnwb6Op_GvwY-oB7o"/>
+</div>
+</div>
+<div class="lg:col-span-6 lg:-ml-24 bg-surface-container-lowest p-8 md:p-16 rounded-lg editorial-shadow mt-[-40px] lg:mt-0 relative z-20 border border-outline-variant/10">
+<div class="flex gap-4 mb-6">
+<span class="bg-surface-container-highest px-3 py-1 rounded-full text-[10px] font-label font-bold tracking-widest text-primary uppercase">FEATURED RECIPE</span>
+<span class="text-[10px] font-label font-bold tracking-widest text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span> 25 MINS
+                        </span>
+</div>
+<h1 class="font-headline text-4xl md:text-5xl lg:text-6xl text-on-surface mb-6 leading-tight tracking-tight">Zesty Mediterranean Salmon Bowl</h1>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-md">
+                        A vibrant harmony of pan-seared salmon, herb-infused quinoa, and sun-drenched vegetables finished with a bright citrus vinaigrette.
+                    </p>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-4 rounded-full font-label font-bold text-sm tracking-widest hover:scale-[1.02] transition-transform duration-200 inline-flex items-center gap-2 shadow-lg shadow-primary/20">
+                        VIEW RECIPE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Seasonal Inspiration: Bento-style Grid -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-12 gap-4">
+<div>
+<h2 class="font-headline text-3xl text-on-surface mb-2">Seasonal Inspiration</h2>
+<p class="font-body text-on-surface-variant">Gather what’s ripe and ready from the garden.</p>
+</div>
+<a class="font-label text-xs font-bold tracking-widest text-primary border-b border-primary/30 pb-1" href="#">EXPLORE AUTUMN INGREDIENTS</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Large Feature -->
+<div class="md:col-span-2 group cursor-pointer">
+<div class="relative rounded-lg overflow-hidden aspect-[16/9] mb-4">
+<img alt="Butternut Squash Soup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Artisanal ceramic bowl filled with creamy butternut squash soup topped with roasted seeds and fresh sage on a wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2ZMIn-H8KNsgxoUGRTCqx5JrHO8TJMYBdsuYARjY9t4aWebGPDwgrs1scbit9VyXglAsBJQjLMp8quipSYW_-pDcNVZ2SGRGxuK3DcGm_awz8X-fyL0gDIXX5yRri9SIbaxt69XvChWcPyzukmuFR5h-OrujalJ91iKSB1h55NUcp5LfvJoyrEPAoUvI0y2-OoVTxBBxWWorKQQ5W3-NGhQw2Yc-y0OwbXUd6kIOj-C7ocyZhg18ugPrtWipBCcVKHHPJ5zflZ5A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<span class="font-label text-[10px] tracking-widest font-bold">TECHNIQUE</span>
+<h3 class="font-headline text-2xl mt-1">The Art of the Perfect Pureé</h3>
+</div>
+</div>
+</div>
+<!-- Vertical Stack -->
+<div class="flex flex-col gap-8">
+<div class="bg-surface-container-lowest p-6 rounded-lg editorial-shadow flex gap-4 items-center group cursor-pointer border border-outline-variant/10">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0">
+<img alt="Spring Harvest" class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="Macro photo of vibrant green peas and fresh mint leaves with water droplets" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8JkabFVGt-VYxLhx4tzgY6NhPRPVQ0ao0uRnkw5oj6pX6PwEDP-h_ex1U_mmZSUuO6ZHibPyCcAR9IrpiuWAWFTE4YzxyJGXH7IzOLoFBJZkFEN6b50U5YXi2Hnpp0gQY8yntd5C2oRKyVnnZdOtkiRXZ4ZAMNw_11JBbjzc8lO6KvNbmglvJBp9MYjTgHuOiM5rcFiHfblEx6UN51RxiHYS88pI_6C4bLsKSSHNQcbWI8hRppO6tGSAnceMoCCEhth9WSb-aUBc"/>
+</div>
+<div>
+<h4 class="font-headline text-lg text-on-surface">Sweet Pea &amp; Mint</h4>
+<p class="text-xs text-on-surface-variant font-label uppercase tracking-widest mt-1">15 Recipes</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg editorial-shadow flex gap-4 items-center group cursor-pointer border border-outline-variant/10">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0">
+<img alt="Winter Greens" class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="Beautifully arranged kale and pomegranate salad in a rustic bowl with overhead lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYdTeA7LpEW1R2r6BAPJj00uKKP48MWAIZGW1Z-VI64FjpcPsgK0tk2sVxxDsETrVe2QqWMRSlx8Tu5nDbnsp9uup1pXCvAgHqM1tuRhcMjd2ON_eItJDGdLC0YhR2b-mTLtfdoq6QnJy_0M_lSPh7sQnMvQMaw4AtgRDMtdzrDdlxmK1l4Ih-yS_AKSgHqfJeoIlHFPoZHKiV1QP0NiUYPn-WpOaApzM1JUbmhw3TqhFqBBXXK_2FQjN9QoVQqjIxlXHdBGs5ATc"/>
+</div>
+<div>
+<h4 class="font-headline text-lg text-on-surface">Earthbound Roots</h4>
+<p class="text-xs text-on-surface-variant font-label uppercase tracking-widest mt-1">22 Recipes</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trending This Week -->
+<section class="max-w-7xl mx-auto px-6 py-24">
+<h2 class="font-headline text-3xl text-on-surface mb-12 text-center">Trending This Week</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Trending Card 1 -->
+<div class="group">
+<div class="rounded-lg overflow-hidden mb-4 relative">
+<img alt="Classic Carbonara" class="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Traditional homemade pasta carbonara with pancetta and pecorino cheese served in an elegant shallow bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHuC0kQRqoZjsc6LEcVpt7p58JjMIRrC6_zEk_rymlzy1bnudmIrA0LSWm5o4WHrq3s-I4del2JFqO_-EzCnoDhV40HmTRaAfayUknFIjqpViV4oobEZvzoeLn1vNp3ggpLWIq6KoPUIiBHap-0oxXsqLzHa-6Rn31GQtyx-Pq6ZPymEhXRIgTI7N6nzLlPVvTXuD4yTpz59X1KguZtpJB3zoHPOG8ENFwj1FzVT9TxOQBV48oj1-5omh38lF4WMf2dtvNqwu7tLQ"/>
+<button class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-full shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</button>
+</div>
+<span class="text-[10px] font-label font-bold tracking-widest text-tertiary uppercase">ITALIAN CLASSICS</span>
+<h3 class="font-headline text-xl text-on-surface mt-2 group-hover:text-primary transition-colors">The No-Cream Carbonara</h3>
+<div class="flex items-center gap-4 mt-3 text-on-surface-variant">
+<span class="text-xs font-label">30 MINS</span>
+<span class="text-xs font-label">•</span>
+<span class="text-xs font-label">EASY</span>
+</div>
+</div>
+<!-- Trending Card 2 -->
+<div class="group">
+<div class="rounded-lg overflow-hidden mb-4 relative">
+<img alt="Green Power Bowl" class="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Healthy buddha bowl with avocado, edamame, and brown rice beautifully plated with colorful garnish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA99CQBTMCosdd4QRBN9twCb6xIzhSKmFMufE8OayMCYkPgBBEptva_w52PuNDE757SGEm1PcHovbUkcL3TUuWxcjRFMVOu9rIMPFXWy7v8vwSZZXeey9AZZP4OqWbfa_0ugFUYkkzsQcVo6yU-aU3KIE7pJJXSKxk4_69hM5jyFOLL0Kxle94zKFDs7Cey91V5F1fvWcrm8Z31W4t9tx_zwQXGpsU0tFtKnGK6q3Nm6jL3QXPRlbGQsYmZ9fXsuRg2kAlkiEholac"/>
+<button class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-full shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</button>
+</div>
+<span class="text-[10px] font-label font-bold tracking-widest text-tertiary uppercase">CLEAN EATING</span>
+<h3 class="font-headline text-xl text-on-surface mt-2 group-hover:text-primary transition-colors">Green Power Harvest Bowl</h3>
+<div class="flex items-center gap-4 mt-3 text-on-surface-variant">
+<span class="text-xs font-label">20 MINS</span>
+<span class="text-xs font-label">•</span>
+<span class="text-xs font-label">INTERMEDIATE</span>
+</div>
+</div>
+<!-- Trending Card 3 -->
+<div class="group">
+<div class="rounded-lg overflow-hidden mb-4 relative">
+<img alt="Artisanal Doughnuts" class="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Stacked artisanal doughnuts with chocolate glaze and sprinkled nuts on a minimal white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDNAD6XOBhCIcRU8WHOp95e_GCwura3fbn2pK4BG5Y6ZtK9UbhduQnsKT021sbgros-3YO7ft0spwrMIfL1wvsTuJGRU6mNReT96cbOGqTGilFy_P7H-56aH4EG-OaosdD4Cl_4FDvqZRagWLTCctzsi6C53nBOp5CDxdVHi2v_uA4fB5eQv6fQh7QpS11YoTsf-DjPgE6L--UqyXvsdN7XZ3DCAFY9B0xKzxJsSnqO9af1uzO3-bQcr5ZVxeFHl2v_odIWrlIXlE"/>
+<button class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-full shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</button>
+</div>
+<span class="text-[10px] font-label font-bold tracking-widest text-tertiary uppercase">BAKERY</span>
+<h3 class="font-headline text-xl text-on-surface mt-2 group-hover:text-primary transition-colors">Brioche Doughnuts with Curd</h3>
+<div class="flex items-center gap-4 mt-3 text-on-surface-variant">
+<span class="text-xs font-label">4 HOURS</span>
+<span class="text-xs font-label">•</span>
+<span class="text-xs font-label">ADVANCED</span>
+</div>
+</div>
+<!-- Trending Card 4 -->
+<div class="group">
+<div class="rounded-lg overflow-hidden mb-4 relative">
+<img alt="Summer Citrus Salad" class="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Gourmet salad with grilled chicken and citrus fruit slices in a bright airy setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtRfIEOaoopdBxUPJhSQHlj8WL7u_g0d_j1inzyOGIcoPh3BoywOkuekX2eqLcQ50HXmkxOHvfqPSXFVsDUEya-gdwU-Ee_e8SSv0mXeO7QGnFL8Qch0YHxFn64KyZv2e5L5PuL-nzTObfhnW2I3Q4BmYSEPPFD9rjKbB6Rg3UqyXvB41Tu2FGUGZSdQq_jhFhtXjpWbS2h--JI_VXvjNVQ-FOdW39hNr5ggVQdFFCym_lHnYeCMaJRwBNZWp4Jc5Yz2Qnv2Hj7hc"/>
+<button class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-full shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</button>
+</div>
+<span class="text-[10px] font-label font-bold tracking-widest text-tertiary uppercase">QUICK LUNCH</span>
+<h3 class="font-headline text-xl text-on-surface mt-2 group-hover:text-primary transition-colors">Charred Citrus &amp; Kale Salad</h3>
+<div class="flex items-center gap-4 mt-3 text-on-surface-variant">
+<span class="text-xs font-label">15 MINS</span>
+<span class="text-xs font-label">•</span>
+<span class="text-xs font-label">EASY</span>
+</div>
+</div>
+</div>
+<div class="mt-20 flex justify-center">
+<button class="border border-primary/20 text-primary px-10 py-4 rounded-full font-label font-bold text-sm tracking-widest hover:bg-primary/5 transition-colors duration-200">
+                    BROWSE ALL RECIPES
+                </button>
+</div>
+</section>
+<!-- Newsletter / Journal Teaser -->
+<section class="max-w-5xl mx-auto px-6 py-24 mb-12">
+<div class="bg-surface-container rounded-lg p-12 md:p-24 text-center relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-headline text-4xl text-on-surface mb-6">Join the Digital Epicurean</h2>
+<p class="text-on-surface-variant text-lg mb-10 max-w-xl mx-auto">
+                        Receive a weekly curation of rare techniques, seasonal pantry essentials, and kitchen stories from across the globe.
+                    </p>
+<div class="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
+<input class="flex-1 bg-surface-container-lowest border-0 rounded-full px-6 py-4 text-sm font-label focus:ring-2 focus:ring-primary/40" placeholder="email address" type="email"/>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-label font-bold text-sm tracking-widest">SUBSCRIBE</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#eae7e7] dark:bg-[#1c1b1b] w-full mt-24 rounded-t-lg">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 gap-8 w-full max-w-7xl mx-auto">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="text-lg font-headline italic text-[#1c1b1b] dark:text-[#fcf9f8]">SilkSavor</span>
+<p class="text-[10px] font-label text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70">© 2024 SilkSavor. Part of The Digital Epicurean Culinary Group.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-body text-sm text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:text-[#ab2e17] transition-colors hover:underline decoration-[#ab2e17]/30" href="#">About Us</a>
+<a class="font-body text-sm text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:text-[#ab2e17] transition-colors hover:underline decoration-[#ab2e17]/30" href="#">Press Kitchen</a>
+<a class="font-body text-sm text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:text-[#ab2e17] transition-colors hover:underline decoration-[#ab2e17]/30" href="#">Privacy Policy</a>
+<a class="font-body text-sm text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:text-[#ab2e17] transition-colors hover:underline decoration-[#ab2e17]/30" href="#">Sustainability</a>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">public</span>
+<span class="material-symbols-outlined text-primary">restaurant</span>
+<span class="material-symbols-outlined text-primary">wine_bar</span>
+</div>
+</div>
+</footer>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 glass-nav z-50">
+<div class="flex justify-around items-center p-4">
+<button class="flex flex-col items-center gap-1 text-[#ab2e17]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-label font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#1c1b1b]">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-label">Explore</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#1c1b1b]">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="text-[10px] font-label">Saves</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#1c1b1b]">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-label">Profile</span>
+</button>
+</div>
+</nav>
+</body></html>
