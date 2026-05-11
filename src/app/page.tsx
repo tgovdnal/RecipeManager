@@ -1,9 +1,10 @@
-export const dynamic = 'force-dynamic';
+import { PrismaClient } from '@prisma/client';
 import RecipeCard from '@/components/RecipeCard';
 import Header from '@/components/Header';
 import { Search } from 'lucide-react';
 import { prisma } from '@/lib/prisma';
 
+const prisma = new PrismaClient();
 
 export default async function Home({
   searchParams,

@@ -1,7 +1,7 @@
 {
   "name": "Meine Rezepte",
   "short_name": "Rezepte",
-  "description": "Eine moderne Rezeptverwaltung",
+  "description": "Digitale Rezeptsammlung",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

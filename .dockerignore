@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+.next
+.git
+.vscode
+.env*
+! .env.example
+public/uploads/*
+dev.db
+dev.db-journal
