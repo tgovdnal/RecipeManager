@@ -38,9 +38,9 @@ RUN mkdir -p /app/public/uploads /app/data && chown -R nextjs:nodejs /app/public
 
 USER nextjs
 
-EXPOSE 3000
+EXPOSE 3050
 
-ENV PORT 3000
+ENV PORT 3050
 
 COPY --chown=nextjs:nodejs start.sh ./
 RUN chmod +x start.sh

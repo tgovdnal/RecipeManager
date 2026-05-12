@@ -2,7 +2,7 @@ services:
   app:
     build: .
     ports:
-      - "3000:3050"
+      - "3050:3050"
     environment:
       - DATABASE_URL=file:/app/data/recipes.db
     volumes:
