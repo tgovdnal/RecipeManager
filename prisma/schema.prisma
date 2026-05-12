@@ -8,18 +8,44 @@ datasource db {
 }
 
 model Recipe {
-  id                  String   @id @default(cuid())
-  title               String
-  description         String
-  ingredients         String   // JSON string
-  instructions        String   // JSON string
-  tags                String   // Comma separated tags
-  difficulty          String   // Einfach, Mittel, Schwer
-  cookingTimeMinutes  Int
-  servings            Int
-  imageUrl            String?
-  category            String?  // e.g. "Unter 30 Minuten", "Vegetarisch", "Dessert", "Saisonale Favoriten"
-  dietary             String?  // e.g. "Vegan", "Glutenfrei"
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  id                 String   @id @default(cuid())
+  title              String
+  description        String
+  ingredients        String // JSON string
+  instructions       String // JSON string
+  tags               String // Comma separated tags
+  difficulty         String // Einfach, Mittel, Schwer
+  cookingTimeMinutes Int
+  servings           Int
+  imageUrl           String?
+  category           String? // e.g. "Unter 30 Minuten", "Vegetarisch", "Dessert", "Saisonale Favoriten"
+  dietary            String? // e.g. "Vegan", "Glutenfrei"
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  favorites   Favorite[]
+  weeklyPlans WeeklyPlan[]
+}
+
+model Favorite {
+  id        String   @id @default(cuid())
+  recipeId  String   @unique
+  recipe    Recipe   @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model WeeklyPlan {
+  id        String   @id @default(cuid())
+  date      DateTime // The specific date for the planned recipe
+  recipeId  String
+  recipe    Recipe   @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model ShoppingListItem {
+  id        String   @id @default(cuid())
+  name      String // name of the ingredient
+  checked   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
