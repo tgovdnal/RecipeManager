@@ -1,13 +1,15 @@
-version: '3.8'
-
 services:
   app:
     build: .
     ports:
       - "3000:3000"
     environment:
-      - DATABASE_URL=file:./dev.db
+      - DATABASE_URL=file:/app/data/recipes.db
     volumes:
-      - ./public/uploads:/app/public/uploads
-      - ./dev.db:/app/dev.db
+      - recipe-data:/app/data
+      - recipe-uploads:/app/public/uploads
     restart: unless-stopped
+
+volumes:
+  recipe-data:
+  recipe-uploads:
