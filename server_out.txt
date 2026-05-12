@@ -1,3 +1,0 @@
-
-> myapp@0.1.0 dev
-> next dev > npm_dev.log 2>&1

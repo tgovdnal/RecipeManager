@@ -20,12 +20,20 @@
 .DS_Store
 *.pem
 
-# debug
+# debug & logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+app.log
+npm_dev.log
+output.txt
+server_out.txt
+ver.txt
 
 # local env files
+.env
 .env*.local
 
 # vercel
@@ -36,3 +44,7 @@ yarn-error.log*
 next-env.d.ts
 
 .vs
+
+# database
+*.db
+*.db-journal

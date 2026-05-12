@@ -14,12 +14,9 @@ Hier ist ein strategischer Plan für die Weiterentwicklung der App. Die Features
 - [x] **Druckansicht ("Print Mode"):**
   - Ein spezielles CSS-Stylesheet (`@media print`), das beim Drucken eines Rezepts nur die Zutaten, Mengen und Zubereitungsschritte in einem eleganten, tinte-sparenden Layout ausgibt.
 
-## Phase 2: Personalisierung & Alltagstauglichkeit
-*Fokus auf Benutzerkonten und die tägliche Nutzung im Alltag.*
+## Phase 2: Alltagstauglichkeit & Workflow
+*Fokus auf die nahtlose tägliche Nutzung im Alltag.*
 
-- [ ] **Benutzer-Accounts & Authentifizierung (z.B. via NextAuth):**
-  - Registrierung und Login.
-  - Eigene Profile, um zu sehen, wer welches Rezept erstellt hat.
 - [ ] **"Mein Kochbuch" (Favoriten):**
   - Ein Lesezeichen-Icon (Bookmark) auf den Rezeptkarten, um Rezepte für später zu speichern.
   - Eine private Übersichtsseite mit allen markierten Lieblingsrezepten.
@@ -28,14 +25,12 @@ Hier ist ein strategischer Plan für die Weiterentwicklung der App. Die Features
 - [ ] **Automatisierte Einkaufsliste:**
   - Basierend auf dem Wochenplaner werden alle Zutaten intelligent zusammengefasst und als abhakbare Einkaufsliste generiert (mobil optimiert für den Supermarkt).
 
-## Phase 3: Community & "Smart Kitchen"
-*Fokus auf Interaktion und moderne Technologie.*
+## Phase 3: "Smart Kitchen" & Technologie
+*Fokus auf digitale Assistenz beim Kochen.*
 
 - [ ] **Cooking Mode (Koch-Modus):**
   - Ein Button "Jetzt kochen", der das Rezept im Vollbild öffnet.
   - Riesige Schrift, ein Schritt pro Seite (Swipe-Bedienung) und eine Funktion, die verhindert, dass der Bildschirm des Handys/Tablets sich automatisch abdunkelt (Wake Lock API).
-- [ ] **Bewertungen & Kommentare:**
-  - Ein Sterne-Rating-System und eine Kommentarfunktion unter den Rezepten, damit Nutzer Abwandlungen ("Habe statt Sahne Kokosmilch genommen") austauschen können.
 - [ ] **Echter Bild-Upload:**
   - Statt nur Bild-URLs einzufügen, direkte Integration eines Datei-Uploads (z.B. via Amazon S3 oder Vercel Blob) für lokale Fotos.
 - [ ] **KI-Rezept-Generator:**
@@ -49,7 +44,7 @@ Hier ist ein strategischer Plan für die Weiterentwicklung der App. Die Features
 *Ideen, die perfekt zum eleganten "Artisan/Editorial" Vibe der App passen und sie von Standard-Apps abheben.*
 
 - [ ] **Kulinarisches Tagebuch (Recipe Journal):**
-  - Statt nur simpler Sternchen-Bewertungen: Ein elegantes Tagebuch für jedes Rezept. Nutzer können Fotos *ihrer eigenen* Versuche hochladen und private Notizen hinterlegen (z.B. "Beim nächsten Mal die Nüsse vorher rösten" oder "Mit Riesling aus 2021 serviert").
+  - Ein elegantes, persönliches Tagebuch für jedes Rezept. Eigene Fotos von Kochversuchen hochladen und persönliche Notizen hinterlegen (z.B. "Beim nächsten Mal die Nüsse vorher rösten" oder "Mit Riesling aus 2021 serviert").
 - [ ] **Saisonale Zutaten-Matrix & "Zero Waste":**
   - Ein Kalender, der zeigt, welche Gemüsesorten gerade Saison haben. Die App schlägt automatisch Rezepte mit diesen saisonalen (und oft günstigeren/frischeren) Zutaten vor.
   - Ein intelligenter "Resteverwerter": Die App merkt sich, dass für Rezept A nur ein halber Kürbis gebraucht wurde, und schlägt für den nächsten Tag Rezept B vor, das die andere Hälfte nutzt.
