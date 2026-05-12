@@ -2,7 +2,18 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Clock, Users, ChefHat, Plus, Minus, FileText, Maximize, X, ArrowLeft, ArrowRight } from "lucide-react";
+import {
+  Clock,
+  Users,
+  ChefHat,
+  Plus,
+  Minus,
+  FileText,
+  Maximize,
+  X,
+  ArrowLeft,
+  ArrowRight,
+} from "lucide-react";
 import { clsx } from "clsx";
 
 interface RecipeInteractiveProps {
@@ -34,32 +45,39 @@ export default function RecipeInteractive({
     setServings((prev) => Math.max(1, prev + delta));
   };
 
-  const scaleIngredient = (ingredient: string, originalServings: number, newServings: number) => {
+  const scaleIngredient = (
+    ingredient: string,
+    originalServings: number,
+    newServings: number,
+  ) => {
     // A simple regex to find numbers (including decimals and fractions like 1/2) at the start or inside the string.
     // This is a basic implementation. For more complex ingredient parsing, a specialized library would be better.
     return ingredient.replace(/(\d+(?:[\.,]\d+)?(?:\/\d+)?)/g, (match) => {
-      let num = parseFloat(match.replace(',', '.'));
-      if (match.includes('/')) {
-        const [numStr, denStr] = match.split('/');
+      let num = parseFloat(match.replace(",", "."));
+      if (match.includes("/")) {
+        const [numStr, denStr] = match.split("/");
         num = parseInt(numStr, 10) / parseInt(denStr, 10);
       }
       if (isNaN(num)) return match;
 
       const scaled = (num / originalServings) * newServings;
       // Format to avoid long decimals like 1.3333333
-      return Number.isInteger(scaled) ? scaled.toString() : scaled.toFixed(1).replace('.0', '');
+      return Number.isInteger(scaled)
+        ? scaled.toString()
+        : scaled.toFixed(1).replace(".0", "");
     });
   };
 
   const ingredients = initialIngredients.map((ing) =>
-    scaleIngredient(ing, recipe.servings, servings)
+    scaleIngredient(ing, recipe.servings, servings),
   );
 
-  const difficultyColor = {
-    Einfach: "bg-green-100 text-green-800",
-    Mittel: "bg-yellow-100 text-yellow-800",
-    Schwer: "bg-red-100 text-red-800",
-  }[recipe.difficulty] || "bg-gray-100 text-gray-800";
+  const difficultyColor =
+    {
+      Einfach: "bg-green-100 text-green-800",
+      Mittel: "bg-yellow-100 text-yellow-800",
+      Schwer: "bg-red-100 text-red-800",
+    }[recipe.difficulty] || "bg-gray-100 text-gray-800";
 
   return (
     <>
@@ -80,7 +98,7 @@ export default function RecipeInteractive({
           </div>
 
           <div className="p-8 md:w-1/2 flex flex-col justify-center relative">
-             <div className="absolute top-4 right-4 flex gap-2 print:hidden">
+            <div className="absolute top-4 right-4 flex gap-2 print:hidden">
               <button
                 onClick={() => window.print()}
                 className="p-2 bg-gray-100 text-gray-600 rounded-full hover:bg-gray-200 transition-colors"
@@ -91,11 +109,19 @@ export default function RecipeInteractive({
             </div>
 
             <div className="flex flex-wrap gap-2 mb-4">
-              <span className={clsx("px-3 py-1 text-sm font-semibold rounded-full", difficultyColor)}>
+              <span
+                className={clsx(
+                  "px-3 py-1 text-sm font-semibold rounded-full",
+                  difficultyColor,
+                )}
+              >
                 {recipe.difficulty}
               </span>
               {tags.map((tag, i) => (
-                <span key={i} className="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-full">
+                <span
+                  key={i}
+                  className="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-full"
+                >
                   {tag}
                 </span>
               ))}
@@ -115,8 +141,12 @@ export default function RecipeInteractive({
                   <Clock size={24} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 font-medium">Zubereitung</p>
-                  <p className="font-semibold">{recipe.cookingTimeMinutes} Min.</p>
+                  <p className="text-sm text-gray-500 font-medium">
+                    Zubereitung
+                  </p>
+                  <p className="font-semibold">
+                    {recipe.cookingTimeMinutes} Min.
+                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3 text-gray-700">
@@ -133,7 +163,9 @@ export default function RecipeInteractive({
                     >
                       <Minus size={14} />
                     </button>
-                    <span className="font-semibold min-w-[1.5rem] text-center">{servings}</span>
+                    <span className="font-semibold min-w-[1.5rem] text-center">
+                      {servings}
+                    </span>
                     <button
                       onClick={() => handleServingsChange(1)}
                       className="p-1 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 print:hidden"
@@ -216,7 +248,9 @@ export default function RecipeInteractive({
 
           <div className="p-8 flex justify-between items-center border-t border-gray-700 bg-gray-800/50">
             <button
-              onClick={() => setCurrentStepIndex(prev => Math.max(0, prev - 1))}
+              onClick={() =>
+                setCurrentStepIndex((prev) => Math.max(0, prev - 1))
+              }
               disabled={currentStepIndex === 0}
               className="flex items-center space-x-2 px-6 py-4 rounded-xl font-medium text-lg bg-gray-700 hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
@@ -225,19 +259,23 @@ export default function RecipeInteractive({
             </button>
 
             <div className="flex space-x-2">
-               {instructions.map((_, i) => (
-                 <div
-                   key={i}
-                   className={clsx(
-                     "w-3 h-3 rounded-full transition-colors",
-                     i === currentStepIndex ? "bg-emerald-500" : "bg-gray-600"
-                   )}
-                 />
-               ))}
+              {instructions.map((_, i) => (
+                <div
+                  key={i}
+                  className={clsx(
+                    "w-3 h-3 rounded-full transition-colors",
+                    i === currentStepIndex ? "bg-emerald-500" : "bg-gray-600",
+                  )}
+                />
+              ))}
             </div>
 
             <button
-              onClick={() => setCurrentStepIndex(prev => Math.min(instructions.length - 1, prev + 1))}
+              onClick={() =>
+                setCurrentStepIndex((prev) =>
+                  Math.min(instructions.length - 1, prev + 1),
+                )
+              }
               disabled={currentStepIndex === instructions.length - 1}
               className="flex items-center space-x-2 px-6 py-4 rounded-xl font-medium text-lg bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >

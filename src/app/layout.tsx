@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Meine Rezepte",
@@ -17,7 +18,10 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
       </head>
-      <body className="bg-background text-on-background font-body antialiased">{children}</body>
+      <body className="bg-background text-on-background font-body antialiased">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
