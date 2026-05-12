@@ -4,12 +4,29 @@ services:
     ports:
       - "3050:3050"
     environment:
-      - DATABASE_URL=file:/app/data/recipes.db
+      - DATABASE_URL=postgresql://silksavor:silksavor_secret@db:5432/silksavor
     volumes:
-      - recipe-data:/app/data
       - recipe-uploads:/app/public/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: silksavor
+      POSTGRES_PASSWORD: silksavor_secret
+      POSTGRES_DB: silksavor
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U silksavor -d silksavor"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     restart: unless-stopped
 
 volumes:
-  recipe-data:
+  postgres-data:
   recipe-uploads:
