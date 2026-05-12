@@ -5,13 +5,13 @@ Hier ist ein strategischer Plan für die Weiterentwicklung der App. Die Features
 ## Phase 1: Die perfekten Basics (Quick Wins)
 *Fokus auf Usability und Kategorisierung, um die Navigation bei wachsender Rezeptanzahl zu erleichtern.*
 
-- [ ] **Kategorien-Seite ("Collections"):**
+- [x] **Kategorien-Seite ("Collections"):**
   - Eine dedizierte Seite, die Rezepte nach Themen gruppiert (z.B. "Unter 30 Minuten", "Vegetarisch", "Saisonale Favoriten").
   - Visuell ansprechende Kacheln für jede Kategorie.
-- [ ] **Erweiterte Such- & Filterfunktion:**
+- [x] **Erweiterte Such- & Filterfunktion:**
   - Filtern nach Zutaten ("Was habe ich im Kühlschrank?").
   - Filter für maximale Zubereitungszeit und Ernährungsformen (Vegan, Glutenfrei).
-- [ ] **Druckansicht ("Print Mode"):**
+- [x] **Druckansicht ("Print Mode"):**
   - Ein spezielles CSS-Stylesheet (`@media print`), das beim Drucken eines Rezepts nur die Zutaten, Mengen und Zubereitungsschritte in einem eleganten, tinte-sparenden Layout ausgibt.
 
 ## Phase 2: Personalisierung & Alltagstauglichkeit

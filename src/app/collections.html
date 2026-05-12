@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="light" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SilkSavor Collections</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#4338ca",
+                    "surface": "#e8eaf0",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#1a1b26",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#991b1b",
+                    "on-surface": "#2e3040",
+                    "on-primary-container": "#e0e2ff",
+                    "surface-container-highest": "#d6d8de",
+                    "surface-variant": "#dcdee4",
+                    "tertiary": "#7c3aed",
+                    "tertiary-fixed": "#ede9fe",
+                    "surface-tint": "#6366f1",
+                    "on-background": "#2e3040",
+                    "surface-container-low": "#e5e7ed",
+                    "secondary-fixed": "#d8dae6",
+                    "secondary": "#6c6e7e",
+                    "tertiary-container": "#a78bfa",
+                    "primary": "#6366f1",
+                    "on-primary-fixed": "#1e1b4b",
+                    "inverse-on-surface": "#e8eaf0",
+                    "error": "#dc2626",
+                    "on-secondary-container": "#585a68",
+                    "background": "#e8eaf0",
+                    "surface-bright": "#edeef4",
+                    "on-surface-variant": "#585a68",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#a5b4fc",
+                    "on-tertiary-fixed": "#2e1065",
+                    "surface-dim": "#d4d6dc",
+                    "on-secondary-fixed-variant": "#404252",
+                    "error-container": "#fee2e2",
+                    "tertiary-fixed-dim": "#c4b5fd",
+                    "secondary-container": "#d8dae6",
+                    "primary-fixed": "#e0e2ff",
+                    "outline-variant": "#d0d2dc",
+                    "secondary-fixed-dim": "#b8baca",
+                    "outline": "#8a8c9a",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#a5b4fc",
+                    "surface-surface": "#e8eaf0",
+                    "inverse-surface": "#2e3040",
+                    "surface-container-lowest": "#f0f2f8",
+                    "on-tertiary-fixed-variant": "#5b21b6",
+                    "surface-container": "#e2e4ea"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "1rem",
+                    "xl": "1.5rem",
+                    "full": "9999px",
+                    "2xl": "1.5rem",
+                    "3xl": "24px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "display": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            },
+            "boxShadow": {
+                "neo-raised": "6px 6px 12px rgba(0,0,0,0.08), -6px -6px 12px rgba(255,255,255,0.6)",
+                "neo-inset": "inset 4px 4px 8px rgba(0,0,0,0.06), inset -4px -4px 8px rgba(255,255,255,0.5)"
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #e8eaf0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface antialiased pb-24">
+<!-- TopAppBar Shell -->
+<header class="bg-slate-100 dark:bg-slate-900 shadow-[0_8px_16px_-4px_rgba(0,0,0,0.05)] docked full-width top-0 z-50 sticky mb-6">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-surface shadow-neo-raised active:shadow-neo-inset transition-all duration-200">
+<span class="material-symbols-outlined text-on-surface-variant">arrow_back</span>
+</button>
+<span class="text-2xl font-semibold tracking-tight text-indigo-600 dark:text-indigo-400">SilkSavor</span>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-surface shadow-neo-raised active:shadow-neo-inset transition-all duration-200">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="favorite">favorite</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-surface shadow-neo-raised active:shadow-neo-inset transition-all duration-200">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="px-6">
+<!-- Headline Section -->
+<div class="mb-8 px-2">
+<h1 class="text-3xl font-semibold text-on-surface tracking-tight leading-tight">Entdecke Collections</h1>
+<p class="text-on-surface-variant mt-2 font-medium">Handverlesene Rezepte für jeden Moment.</p>
+</div>
+<!-- Collections Bento/Grid -->
+<div class="grid grid-cols-1 gap-8">
+<!-- Category Tile: Unter 30 Minuten -->
+<div class="relative group h-64 w-full rounded-3xl bg-surface shadow-neo-raised active:shadow-neo-inset transition-all duration-200 overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:scale-105 transition-transform duration-500" data-alt="A top-down view of a vibrant Mediterranean salad bowl featuring fresh greens, cherry tomatoes, cucumbers, and grilled halloumi. The lighting is soft and bright, highlighting the textures of the fresh ingredients in a modern culinary setting. The overall mood is healthy and efficient, fitting a fast-paced but quality lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7QCzWnEBdnPYj74WTIOXM3NkjNoeeUebQacEnyaT2hVdt6Ua_FXYXZQOA_6IEW5Oxbv1Q8CdLejxyeACTjxPdGGBJ9OrrrAoe6iB4HkIcmRMLd9Jeiq7_kC5kony-qlJ4savmCtdkQv8l0tzUYLfhNJeauqwwPQsxNxEmvruZB4Sci4c_dMFaNQ9y9o0L8vj1YwfCJjDwxyHArJfOnlWrNp-rYo5zlIjKHs63XXo-fhzj4io5A_523PsrcFA3m4yD_wzvjq-BaEo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-on-surface/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<span class="bg-primary/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-semibold mb-2 inline-block">Blitzrezepte</span>
+<h2 class="text-2xl font-semibold text-white">Unter 30 Minuten</h2>
+<p class="text-white/80 text-sm">42 Rezepte</p>
+</div>
+</div>
+<!-- Category Tile: Vegetarisch -->
+<div class="relative group h-64 w-full rounded-3xl bg-surface shadow-neo-raised active:shadow-neo-inset transition-all duration-200 overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A macro shot of a creamy avocado toast garnished with microgreens, chili flakes, and a perfectly poached egg. The soft-focus background emphasizes the vibrant greens and the rich texture of the artisan bread. The aesthetic is clean, sophisticated, and light-filled, emphasizing plant-based elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGubD0I0UYukxH2huP9uXBFicT6asDiHZwO5g16MvPUC6IvEMsVrt0IuTWr7p69GbABlF95Sk7R65DttT9CfhdvOh7zZt0OycNe39b-CUVMO_MqugiYdZEA3YbFJN8kE_pSfcFs1O4ljiDKo6ErRHgrZT83plWeqxU7liX1sYBjeqXRPcsEAHPPwfcQTfd35oW2u5Q6Ehx7Awc-9-7ivrDt5e-CXU-4rC4uY7Iwl7ZmIl2wuPLBXZwCt1wvMybGOtc6oCxpfVhekM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-on-surface/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<span class="bg-tertiary/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-semibold mb-2 inline-block">Plant Based</span>
+<h2 class="text-2xl font-semibold text-white">Vegetarisch</h2>
+<p class="text-white/80 text-sm">128 Rezepte</p>
+</div>
+</div>
+<!-- Two Column Grid for smaller collections -->
+<div class="grid grid-cols-2 gap-6">
+<!-- Category Tile: Saisonale Favoriten -->
+<div class="relative group h-72 rounded-3xl bg-surface shadow-neo-raised active:shadow-neo-inset transition-all duration-200 overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A cozy autumn flat lay featuring a warm pumpkin soup with toasted seeds and a side of rustic sourdough bread. Soft shadows and warm, diffuse lighting create a seasonal, comforting atmosphere. The color palette is rich with oranges and deep browns, echoing a soft neomorphic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhldvPV8jWXsaY4dYqdmZh6OPX7Bt2eeovtnt3LAXX6frIiwviY1hYDiZg2DQ2wZuGpxoFg63MdLGIglBhoC9L5egfNN1uxxV1uIZ0kgkuMwifNQgoaSQzvCAfif0NVvILVHdnCX9rT4aTmgUTgwRY0kUVY4OuQh7HJuyju12z8cMos3py7JfxLg7khj7PMAPTUpizLQ7cqF7X1tg7fBxXwkbWBF2hcgIEMB6ITv82r6hNIJ6eG1WqDu3et7-pdl0ONNfjaHHGlHc"/>
+<div class="absolute inset-0 bg-on-surface/40"></div>
+<div class="absolute bottom-0 left-0 p-4 w-full">
+<h2 class="text-lg font-semibold text-white leading-tight">Saisonale Favoriten</h2>
+<p class="text-white/80 text-xs">24 Rezepte</p>
+</div>
+</div>
+<!-- Category Tile: Desserts -->
+<div class="relative group h-72 rounded-3xl bg-surface shadow-neo-raised active:shadow-neo-inset transition-all duration-200 overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An elegant close-up of a chocolate fondant with a molten center, dusted with powdered sugar and garnished with a single mint leaf. The lighting is dramatic yet soft, highlighting the silky texture of the chocolate. This image exudes indulgence and high-end culinary craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0l_XFDRHmuJfrI8rWe2r2nOF9ETtltZej9VOsEU3UHNrF9ZKJJKLEVNfQFdG8USr89ioOxJNieeSk7giRp1V2L2HO1MM-Jt9GyFKj7we959RzQNEYAtkran5lRTWA7SFJlOgHvt1xPaqexykQK_Hl5i8O0-nWHEIS_ZqwFn9VjrMwcERLKMG6daXl6ajpWlOCRNQesI7w02rntyGYu-8ZneuCCLKmDGr48EEto39m8Dl7D4WI4vZhptyo0HsFRq6twmSZHenIdG8"/>
+<div class="absolute inset-0 bg-on-surface/40"></div>
+<div class="absolute bottom-0 left-0 p-4 w-full">
+<h2 class="text-lg font-semibold text-white leading-tight">Desserts</h2>
+<p class="text-white/80 text-xs">85 Rezepte</p>
+</div>
+</div>
+</div>
+<!-- Category Tile: Gesunde Woche -->
+<div class="relative group h-64 w-full rounded-3xl bg-surface shadow-neo-raised active:shadow-neo-inset transition-all duration-200 overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A curated selection of glass meal prep containers filled with roasted vegetables, quinoa, and lean proteins arranged on a light stone surface. Bright, natural morning light creates soft shadows, emphasizing a clean and organized approach to healthy living. The aesthetic is modern, fresh, and highly functional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsLXeJfTC4m7_jA3VzbVAl2pppOgJnGKJiAawuA-vO2XYowwoZKa7_0784BvKbgO7gnF1jyAyd_wPwSELW1pUoffOjzaxZcXtORp-a1eECVGK2hpLbsr0TcET8lnzog63jP2YLhwBjL3j8BCjOcde2h-Bp9PVITN4YRyu7Moav8fI-KC4M68wbzEn10taoXvMOveO1ULuHm-ioQxHLFRY8zf_acKJ6y4ofiDOx0JUAnqAcsriWXUXl5b3fBCb94m5jbpr94A4nxac"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-on-surface/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<span class="bg-primary/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-semibold mb-2 inline-block">Meal Prep</span>
+<h2 class="text-2xl font-semibold text-white">Gesunde Woche</h2>
+<p class="text-white/80 text-sm">56 Rezepte</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-slate-100 dark:bg-slate-950 full-width rounded-t-[32px] mt-20 shadow-[0_-10px_20px_rgba(0,0,0,0.03)]">
+<div class="flex flex-col items-center px-12 py-12 w-full">
+<div class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-6">SilkSavor</div>
+<div class="flex flex-wrap justify-center gap-6 mb-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors font-medium" href="#">Browse Recipes</a>
+<a class="text-indigo-600 font-semibold" href="#">Submit a Dish</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors font-medium" href="#">Privacy</a>
+</div>
+<p class="font-['Plus_Jakarta_Sans'] text-sm text-slate-500 dark:text-slate-400 text-center">
+                © 2024 SilkSavor Culinary Group. Crafted with depth.
+            </p>
+</div>
+</footer>
+<!-- Floating Navigation Bar (Mobile Primary Shell) -->
+<nav class="fixed bottom-6 left-6 right-6 h-20 bg-surface shadow-neo-raised rounded-[24px] flex items-center justify-around px-4 z-50">
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium uppercase tracking-wider">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-indigo-600">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome_motion</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Collections</span>
+</button>
+<button class="w-14 h-14 -mt-12 flex items-center justify-center rounded-full bg-primary text-white shadow-neo-raised border-4 border-surface">
+<span class="material-symbols-outlined text-3xl">search</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-[10px] font-medium uppercase tracking-wider">Rezepte</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium uppercase tracking-wider">Profile</span>
+</button>
+</nav>
+</body></html>

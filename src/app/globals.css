@@ -21,3 +21,75 @@
     text-wrap: balance;
   }
 }
+
+@media print {
+  /* Hide elements not needed for printing */
+  nav, header, footer, button, .glass-nav, .no-print {
+    display: none !important;
+  }
+
+  /* Reset backgrounds and colors for ink saving */
+  body, main {
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Expand main container to full width */
+  .max-w-7xl, .max-w-4xl {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Typography adjustments for print */
+  h1 {
+    font-size: 24pt !important;
+    margin-bottom: 12pt !important;
+    page-break-after: avoid;
+  }
+
+  h2 {
+    font-size: 18pt !important;
+    margin-top: 18pt !important;
+    margin-bottom: 8pt !important;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4pt;
+    page-break-after: avoid;
+  }
+
+  p, li {
+    font-size: 12pt !important;
+    line-height: 1.5 !important;
+    color: #333 !important;
+  }
+
+  /* Ensure ingredients and instructions don't break awkwardly across pages */
+  .print-avoid-break {
+    page-break-inside: avoid;
+  }
+
+  /* Make sure images are scaled down or hidden depending on preference, here we scale down */
+  img {
+    max-width: 300px !important;
+    height: auto !important;
+    page-break-inside: avoid;
+  }
+
+  /* Remove all shadows and rounded corners */
+  * {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Layout adjustments for the recipe details */
+  .grid {
+    display: block !important;
+  }
+
+  .lg\:col-span-8, .lg\:col-span-4 {
+    width: 100% !important;
+  }
+}

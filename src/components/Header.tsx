@@ -9,6 +9,7 @@ export default function Header() {
         </Link>
         <div className="hidden md:flex items-center gap-8">
           <Link href="/" className="font-label text-sm tracking-wide text-on-background hover:text-primary transition-colors">Rezepte</Link>
+          <Link href="/collections" className="font-label text-sm tracking-wide text-on-background hover:text-primary transition-colors">Collections</Link>
           <Link href="/recipe/create" className="font-label text-sm tracking-wide text-on-background hover:text-primary transition-colors">Rezept hinzufügen</Link>
         </div>
         <div className="flex items-center gap-5">
