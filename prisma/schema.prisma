@@ -18,6 +18,8 @@ model Recipe {
   cookingTimeMinutes  Int
   servings            Int
   imageUrl            String?
+  category            String?  // e.g. "Unter 30 Minuten", "Vegetarisch", "Dessert", "Saisonale Favoriten"
+  dietary             String?  // e.g. "Vegan", "Glutenfrei"
   createdAt           DateTime @default(now())
   updatedAt           DateTime @updatedAt
 }

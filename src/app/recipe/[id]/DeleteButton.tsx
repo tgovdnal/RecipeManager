@@ -1,6 +1,5 @@
 'use client';
 
-import { Trash2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { deleteRecipe } from '@/app/actions';
 import { useState } from 'react';
@@ -26,10 +25,10 @@ export default function DeleteButton({ id }: { id: string }) {
     <button
       onClick={handleDelete}
       disabled={isDeleting}
-      className="flex items-center space-x-1 bg-red-100 text-red-700 hover:bg-red-200 px-4 py-2 rounded-lg transition-colors font-medium text-sm disabled:opacity-50"
+      className="bg-error/10 hover:bg-error/20 text-error px-6 py-2 rounded-full font-label font-bold text-xs tracking-widest transition-colors flex items-center gap-2 disabled:opacity-50"
     >
-      <Trash2 size={16} />
-      <span className="hidden sm:inline">{isDeleting ? 'Löscht...' : 'Löschen'}</span>
+      <span className="material-symbols-outlined text-sm">delete</span>
+      <span className="hidden sm:inline">{isDeleting ? 'Löscht...' : 'Delete'}</span>
     </button>
   );
 }

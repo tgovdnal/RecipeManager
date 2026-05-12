@@ -2,13 +2,10 @@
 import { prisma } from '@/lib/prisma';
 
 import { revalidatePath } from 'next/cache';
-import { PrismaClient } from '@prisma/client';
 import { z } from 'zod';
 import { join } from 'path';
 import { writeFile, mkdir } from 'fs/promises';
 import { v4 as uuidv4 } from 'uuid';
-
-const prisma = new PrismaClient();
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
@@ -22,6 +19,8 @@ const baseRecipeSchema = z.object({
   ingredients: z.string().min(2), // JSON stringified array
   instructions: z.string().min(2), // JSON stringified array
   tags: z.string(), // JSON stringified array
+  category: z.string().optional().nullable(),
+  dietary: z.string().optional().nullable(),
 });
 
 async function handleImageUpload(image: File | null): Promise<string | null> {
@@ -66,6 +65,8 @@ export async function createRecipe(formData: FormData) {
       ingredients: formData.get('ingredients'),
       instructions: formData.get('instructions'),
       tags: formData.get('tags'),
+      category: formData.get('category'),
+      dietary: formData.get('dietary'),
     };
 
     const validatedData = baseRecipeSchema.parse(rawData);
@@ -84,10 +85,11 @@ export async function createRecipe(formData: FormData) {
     });
 
     revalidatePath('/');
+    revalidatePath('/collections');
     return { success: true };
   } catch (error: any) {
     console.error("Failed to create recipe:", error);
-    return { success: false, error: error.message || "Fehler beim Erstellen des Rezepts" };
+    return { success: false, error: "Fehler beim Erstellen des Rezepts" };
   }
 }
 
@@ -105,6 +107,8 @@ export async function updateRecipe(formData: FormData) {
       ingredients: formData.get('ingredients'),
       instructions: formData.get('instructions'),
       tags: formData.get('tags'),
+      category: formData.get('category'),
+      dietary: formData.get('dietary'),
     };
 
     const validatedData = baseRecipeSchema.parse(rawData);
@@ -126,11 +130,12 @@ export async function updateRecipe(formData: FormData) {
     });
 
     revalidatePath('/');
+    revalidatePath('/collections');
     revalidatePath(`/recipe/${id}`);
     return { success: true };
   } catch (error: any) {
     console.error("Failed to update recipe:", error);
-    return { success: false, error: error.message || "Fehler beim Aktualisieren des Rezepts" };
+    return { success: false, error: "Fehler beim Aktualisieren des Rezepts" };
   }
 }
 
@@ -140,6 +145,7 @@ export async function deleteRecipe(id: string) {
       where: { id },
     });
     revalidatePath('/');
+    revalidatePath('/collections');
     return { success: true };
   } catch (error: any) {
     console.error("Failed to delete recipe:", error);

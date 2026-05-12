@@ -1,25 +1,25 @@
 import Header from '@/components/Header';
 import RecipeForm from '@/components/RecipeForm';
-import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 
 export default function CreateRecipePage() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <>
       <Header />
-
-      <main className="flex-grow container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto mb-6">
-          <Link href="/" className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium transition-colors">
-            <ChevronLeft size={20} className="mr-1" />
+      <main className="pt-32 pb-24 bg-surface min-h-screen">
+        <div className="max-w-4xl mx-auto px-6">
+          <Link href="/" className="inline-flex items-center text-on-surface-variant hover:text-primary transition-colors font-label text-sm tracking-widest uppercase mb-8">
+            <span className="material-symbols-outlined mr-2 text-sm">arrow_back</span>
             Zurück zur Übersicht
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900 mt-4">Neues Rezept erstellen</h1>
-          <p className="text-gray-600 mt-2">Teile dein Lieblingsrezept mit anderen.</p>
-        </div>
+          <div className="mb-12 text-center">
+            <h1 className="font-headline text-4xl md:text-5xl text-on-surface mb-4">Neues Rezept erstellen</h1>
+            <p className="font-body text-on-surface-variant text-lg">Teile deine kulinarischen Kreationen mit der Welt.</p>
+          </div>
 
-        <RecipeForm />
+          <RecipeForm />
+        </div>
       </main>
-    </div>
+    </>
   );
 }

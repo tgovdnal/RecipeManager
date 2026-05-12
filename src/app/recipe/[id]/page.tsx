@@ -1,13 +1,9 @@
-﻿import { notFound } from 'next/navigation';
-import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { Clock, Users, Edit, ChevronLeft, ChefHat } from 'lucide-react';
-import { clsx } from 'clsx';
 import DeleteButton from './DeleteButton';
-import RecipeInteractive from './RecipeInteractive';
+import PrintButton from './PrintButton';
+import Header from '@/components/Header';
 import { prisma } from '@/lib/prisma';
-
-const prisma = new PrismaClient();
 
 export default async function RecipeDetailsPage({ params }: { params: { id: string } }) {
   const recipe = await prisma.recipe.findUnique({
@@ -24,122 +20,145 @@ export default async function RecipeDetailsPage({ params }: { params: { id: stri
 
   try { ingredients = JSON.parse(recipe.ingredients); } catch (e) { ingredients = recipe.ingredients.split('\n'); }
   try { instructions = JSON.parse(recipe.instructions); } catch (e) { instructions = recipe.instructions.split('\n'); }
-  try { tags = JSON.parse(recipe.tags); } catch (e) { tags = recipe.tags.split(',').filter(t => t.trim()); }
-
-  const difficultyColor = {
-    'Einfach': 'bg-green-100 text-green-800',
-    'Mittel': 'bg-yellow-100 text-yellow-800',
-    'Schwer': 'bg-red-100 text-red-800',
-  }[recipe.difficulty] || 'bg-gray-100 text-gray-800';
+  try { tags = JSON.parse(recipe.tags); } catch (e) { tags = recipe.tags.split(',').filter((t: string) => t.trim()); }
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-12">
-        <div className="container mx-auto flex items-center justify-between px-4 py-4">
-          <Link href="/" className="flex items-center space-x-2 transition-colors hover:text-emerald-100">
-            <ChevronLeft size={24} />
-            <span className="text-lg font-medium">Zurück zur Übersicht</span>
+    <>
+      <Header />
+      <main className="pt-32 pb-24 bg-surface min-h-screen">
+
+        {/* Navigation & Actions */}
+        <div className="max-w-7xl mx-auto px-6 mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 no-print">
+          <Link href="/" className="inline-flex items-center text-on-surface-variant hover:text-primary transition-colors font-label text-sm tracking-widest uppercase">
+            <span className="material-symbols-outlined mr-2 text-sm">arrow_back</span>
+            Zurück zur Übersicht
           </Link>
-          <div className="flex space-x-3">
+          <div className="flex gap-4">
+            <PrintButton />
             <Link
               href={`/recipe/${recipe.id}/edit`}
-              className="flex items-center space-x-1 rounded-lg bg-white px-4 py-2 text-sm font-medium text-emerald-700 transition-colors hover:bg-gray-100"
+              className="bg-surface-container-high hover:bg-surface-container-highest text-on-surface px-6 py-2 rounded-full font-label font-bold text-xs tracking-widest transition-colors flex items-center gap-2"
             >
-              <Edit size={16} />
-              <span className="hidden sm:inline">Bearbeiten</span>
+              <span className="material-symbols-outlined text-sm">edit</span>
+              Bearbeiten
             </Link>
             <DeleteButton id={recipe.id} />
           </div>
         </div>
-      </header>
 
-      <main className="container mx-auto max-w-5xl px-4">
+        {/* Hero Section */}
+        <section className="max-w-7xl mx-auto px-6 mb-16 print-avoid-break">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 relative group no-print">
+              <div className="absolute -inset-4 bg-surface-container-high rounded-xl -z-10 transform -rotate-1"></div>
+              {recipe.imageUrl ? (
+                <img
+                  alt={recipe.title}
+                  className="w-full h-[500px] object-cover rounded-lg shadow-sm group-hover:scale-[1.01] transition-transform duration-500"
+                  src={recipe.imageUrl}
                 />
               ) : (
-                <ChefHat className="text-emerald-200" size={120} />
+                <div className="w-full h-[500px] bg-surface-container flex items-center justify-center rounded-lg shadow-sm">
+                  <span className="material-symbols-outlined text-9xl text-on-surface-variant opacity-30">restaurant</span>
+                </div>
               )}
             </div>
 
-            <div className="flex flex-col justify-center p-8 md:w-1/2">
-              <div className="mb-4 flex flex-wrap gap-2">
-                <span className={clsx("px-3 py-1 text-sm font-semibold rounded-full", difficultyColor)}>
+            <div className="lg:col-span-5 flex flex-col gap-6">
+              <div className="flex flex-wrap gap-2 no-print">
+                <span className="bg-surface-container-highest px-3 py-1 rounded-full font-label text-[10px] font-bold text-primary tracking-widest uppercase">
                   {recipe.difficulty}
                 </span>
-                {tags.map((tag, i) => (
-                  <span key={i} className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600">
+                {recipe.category && (
+                  <span className="bg-surface-container-highest px-3 py-1 rounded-full font-label text-[10px] font-bold text-tertiary tracking-widest uppercase">
+                    {recipe.category}
+                  </span>
+                )}
+                {tags.slice(0, 2).map((tag, i) => (
+                  <span key={i} className="bg-surface-container-highest px-3 py-1 rounded-full font-label text-[10px] font-bold text-tertiary tracking-widest uppercase">
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <h1 className="mb-4 text-3xl font-bold leading-tight text-gray-900 md:text-4xl">
+              <h1 className="text-5xl md:text-6xl font-headline text-on-surface leading-tight tracking-tight">
                 {recipe.title}
               </h1>
 
-              <p className="mb-8 text-lg leading-relaxed text-gray-600">
+              <p className="text-lg text-on-surface-variant font-body leading-relaxed max-w-md no-print">
                 {recipe.description}
               </p>
 
-              <div className="grid grid-cols-2 gap-4 border-y border-gray-100 py-6">
-                <div className="flex items-center space-x-3 text-gray-700">
-                  <div className="rounded-full bg-emerald-50 p-3 text-emerald-600">
-                    <Clock size={24} />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-gray-500">Zubereitung</p>
-                    <p className="font-semibold">{recipe.cookingTimeMinutes} Min.</p>
-                  </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-outline-variant/20">
+                <div>
+                  <p className="font-label text-[10px] uppercase tracking-tighter text-on-surface-variant">Dauer</p>
+                  <p className="font-headline text-xl text-on-surface">{recipe.cookingTimeMinutes} Min</p>
                 </div>
-                <div className="flex items-center space-x-3 text-gray-700">
-                  <div className="rounded-full bg-emerald-50 p-3 text-emerald-600">
-                    <Users size={24} />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-gray-500">Portionen</p>
-                    <p className="font-semibold">{recipe.servings}</p>
-                  </div>
+                <div>
+                  <p className="font-label text-[10px] uppercase tracking-tighter text-on-surface-variant">Portionen</p>
+                  <p className="font-headline text-xl text-on-surface">{recipe.servings} Pers.</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3">
-          <div className="md:col-span-1">
-            <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-              <h2 className="mb-6 flex items-center text-xl font-bold text-gray-900">
-                <span className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm text-emerald-800">
-                  {ingredients.length}
-                </span>
+        {/* Content Grid */}
+        <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+          {/* Left Column: Ingredients */}
+          <aside className="lg:col-span-4 space-y-12 print-avoid-break">
+            <div className="bg-surface-container-low p-8 rounded-lg">
+              <h2 className="text-2xl font-headline mb-8 flex items-center gap-3 text-on-surface">
                 Zutaten
+                <span className="h-px flex-grow bg-outline-variant/30 no-print"></span>
               </h2>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {ingredients.map((ingredient, i) => (
-                  <li key={i} className="flex items-start">
-                    <span className="mr-2 mt-1 text-emerald-500">•</span>
-                    <span className="text-gray-700">{ingredient}</span>
+                  <li key={i} className="flex items-start gap-3 group cursor-pointer">
+                    <div className="mt-1 w-5 h-5 rounded border-2 border-primary/30 group-hover:border-primary transition-colors flex items-center justify-center shrink-0 no-print">
+                      <span className="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 text-primary">check</span>
+                    </div>
+                    <span className="text-on-surface font-body">{ingredient}</span>
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
+          </aside>
 
-          <div className="md:col-span-2">
-            <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-              <h2 className="mb-6 text-xl font-bold text-gray-900">Zubereitung</h2>
-              <div className="space-y-6">
-                {instructions.map((step, i) => (
-                  <div key={i} className="flex gap-4">
-                    <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 font-bold text-emerald-800">
-                      {i + 1}
-                    </div>
-                    <p className="pt-1 leading-relaxed text-gray-700">{step}</p>
+          {/* Right Column: Instructions */}
+          <article className="lg:col-span-8">
+            <h2 className="text-3xl font-headline text-on-surface mb-12">Zubereitung</h2>
+            <div className="space-y-16">
+              {instructions.map((step, i) => (
+                <div key={i} className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start print-avoid-break">
+                  <div className="md:col-span-1">
+                    <span className="text-4xl font-headline text-primary-container opacity-40">
+                      {(i + 1).toString().padStart(2, '0')}
+                    </span>
                   </div>
-                ))}
-              </div>
+                  <div className="md:col-span-11 space-y-4 pt-1">
+                    <p className="text-on-surface font-body leading-relaxed text-lg">
+                      {step}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
+          </article>
+
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-surface-container-high w-full mt-24 rounded-t-lg no-print">
+        <div className="flex flex-col md:flex-row justify-between items-center px-12 py-16 gap-8 w-full max-w-7xl mx-auto">
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <span className="text-lg font-headline italic text-on-surface">SilkSavor</span>
+            <p className="text-[10px] font-label text-on-surface/70">© 2024 SilkSavor. Bereitgestellt von RecipeManager.</p>
           </div>
         </div>
-      </main>
-    </div>
+      </footer>
+    </>
   );
 }
