@@ -7,20 +7,21 @@ export const dynamic = 'force-dynamic';
 export default async function Home({
   searchParams,
 }: {
-  searchParams: {
+  searchParams: Promise<{
     search?: string;
     difficulty?: string;
     category?: string;
     dietary?: string;
     maxTime?: string;
-  };
+  }>;
 }) {
-  const search = searchParams?.search || "";
-  const difficulty = searchParams?.difficulty || "";
-  const category = searchParams?.category || "";
-  const dietary = searchParams?.dietary || "";
-  const maxTime = searchParams?.maxTime
-    ? parseInt(searchParams.maxTime, 10)
+  const resolvedSearchParams = await searchParams;
+  const search = resolvedSearchParams?.search || "";
+  const difficulty = resolvedSearchParams?.difficulty || "";
+  const category = resolvedSearchParams?.category || "";
+  const dietary = resolvedSearchParams?.dietary || "";
+  const maxTime = resolvedSearchParams?.maxTime
+    ? parseInt(resolvedSearchParams.maxTime, 10)
     : undefined;
 
   const whereClause: any = {};
@@ -130,7 +131,7 @@ export default async function Home({
 
               <select
                 name="maxTime"
-                defaultValue={searchParams?.maxTime || ""}
+                defaultValue={resolvedSearchParams?.maxTime || ""}
                 className="bg-surface border border-outline-variant/30 rounded-full px-6 py-3 text-sm font-label focus:ring-2 focus:ring-primary/40"
               >
                 <option value="">Max. Zeit</option>

@@ -7,10 +7,11 @@ import { prisma } from "@/lib/prisma";
 export default async function EditRecipePage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
   const recipe = await prisma.recipe.findUnique({
-    where: { id: params.id },
+    where: { id },
   });
 
   if (!recipe) {
