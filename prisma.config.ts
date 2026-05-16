@@ -1,17 +1,22 @@
-import path from "node:path";
-import { defineConfig } from "prisma/config";
-import { PrismaPg } from "@prisma/adapter-pg";
-import dotenv from "dotenv";
+import { config } from "dotenv"
+import { defineConfig } from "prisma/config"
+import { resolve } from "path"
 
-// Explicitly load .env file for the CLI
-dotenv.config();
+// Explicitly load .env.local
+config({ path: resolve(__dirname, ".env.local") })
+
+const databaseUrl = process.env.DATABASE_URL
+
+if (!databaseUrl) {
+  throw new Error("DATABASE_URL is not set in .env.local")
+}
 
 export default defineConfig({
-  schema: path.join("prisma", "schema.prisma"),
+  schema: "prisma/schema.prisma",
+  migrations: {
+    path: "prisma/migrations",
+  },
   datasource: {
-    url: process.env.DATABASE_URL,
+    url: databaseUrl,
   },
-  adapter() {
-    return new PrismaPg({ connectionString: process.env.DATABASE_URL! });
-  },
-});
+})
