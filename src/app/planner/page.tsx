@@ -18,7 +18,7 @@ export default async function PlannerPage() {
   if (day !== 1) monday.setHours(-24 * (day - 1));
   monday.setHours(0, 0, 0, 0);
 
-  const weekDays = Array.from({ length: 7 }).map((_, i) => {
+  const weekDays = Array.from({ length: 7 }).map((_, i: number) => {
     const d = new Date(monday);
     d.setDate(d.getDate() + i);
     return d;
@@ -66,7 +66,7 @@ export default async function PlannerPage() {
               Deine Rezepte
             </h2>
             <div className="overflow-y-auto flex-grow pr-2 flex flex-col gap-2 custom-scrollbar">
-              {recipes.map((recipe) => (
+              {recipes.map((recipe: any) => (
                 <DraggableRecipe key={recipe.id} recipe={recipe} />
               ))}
             </div>
@@ -78,7 +78,7 @@ export default async function PlannerPage() {
           <div className="flex flex-col gap-6">
             {weekDays.map((date, idx) => {
               const dayPlans = plans.filter(
-                (p) => new Date(p.date).toDateString() === date.toDateString(),
+                (p: any) => new Date(p.date).toDateString() === date.toDateString(),
               );
               return (
                 <DroppableDay

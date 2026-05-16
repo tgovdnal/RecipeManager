@@ -6,7 +6,7 @@ export default async function CollectionsPage() {
   const recipes = await prisma.recipe.findMany();
 
   const categoryCounts = recipes.reduce(
-    (acc, recipe) => {
+    (acc: Record<string, number>, recipe: any) => {
       if (recipe.category) {
         acc[recipe.category] = (acc[recipe.category] || 0) + 1;
       }

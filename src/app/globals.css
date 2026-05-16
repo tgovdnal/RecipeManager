@@ -1,9 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-on-primary-fixed: #3e0400;
+  --color-secondary: #615e5b;
+  --color-on-error-container: #93000a;
+  --color-tertiary: #5f5c4f;
+  --color-surface-container-high: #eae7e7;
+  --color-on-primary-fixed-variant: #8c1803;
+  --color-secondary-fixed-dim: #cac6c2;
+  --color-on-primary: #ffffff;
+  --color-surface-container: #f0eded;
+  --color-on-secondary-fixed: #1d1b19;
+  --color-primary-fixed-dim: #ffb4a5;
+  --color-on-background: #1c1b1b;
+  --color-inverse-on-surface: #f3f0ef;
+  --color-surface-container-highest: #e5e2e1;
+  --color-surface-tint: #ae3119;
+  --color-on-surface: #1c1b1b;
+  --color-on-tertiary-fixed-variant: #4a473b;
+  --color-surface-container-low: #f6f3f2;
+  --color-secondary-fixed: #e7e1de;
+  --color-inverse-primary: #ffb4a5;
+  --color-outline: #8d716b;
+  --color-on-secondary-container: #676461;
+  --color-surface-variant: #e5e2e1;
+  --color-on-secondary: #ffffff;
+  --color-on-error: #ffffff;
+  --color-outline-variant: #e1bfb8;
+  --color-primary: #ab2e17;
+  --color-background: #fcf9f8;
+  --color-tertiary-fixed-dim: #ccc6b7;
+  --color-inverse-surface: #313030;
+  --color-tertiary-fixed: #e8e2d2;
+  --color-on-surface-variant: #59413c;
+  --color-on-secondary-fixed-variant: #494644;
+  --color-error: #ba1a1a;
+  --color-on-tertiary-fixed: #1e1c12;
+  --color-secondary-container: #e7e1de;
+  --color-primary-fixed: #ffdad3;
+  --color-surface-dim: #dcd9d9;
+  --color-surface: #fcf9f8;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-tertiary: #ffffff;
+  --color-surface-bright: #fcf9f8;
+  --color-on-tertiary-container: #fffbff;
+  --color-error-container: #ffdad6;
+  --color-tertiary-container: #787467;
+  --color-on-primary-container: #fffbff;
+  --color-primary-container: #cd462d;
+
+  /* Fonts */
+  --font-headline: "Noto Serif", serif;
+  --font-body: "Be Vietnam Pro", sans-serif;
+  --font-label: "Plus Jakarta Sans", sans-serif;
+}
 
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -71,7 +125,7 @@
     page-break-inside: avoid;
   }
 
-  /* Make sure images are scaled down or hidden depending on preference, here we scale down */
+  /* Make sure images are scaled down */
   img {
     max-width: 300px !important;
     height: auto !important;

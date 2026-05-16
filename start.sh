@@ -1,4 +1,4 @@
 #!/bin/sh
 set -ex
-npx prisma db push
+./node_modules/.bin/prisma db push
 node server.js

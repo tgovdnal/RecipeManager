@@ -10,8 +10,8 @@ export default async function ShoppingListPage() {
     orderBy: { createdAt: "desc" },
   });
 
-  const uncheckedItems = items.filter((i) => !i.checked);
-  const checkedItems = items.filter((i) => i.checked);
+  const uncheckedItems = items.filter((i: any) => !i.checked);
+  const checkedItems = items.filter((i: any) => i.checked);
 
   return (
     <main className="min-h-screen pt-24 pb-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,7 +60,7 @@ export default async function ShoppingListPage() {
               <h2 className="text-sm font-label tracking-widest uppercase text-on-surface-variant ml-2 mb-2">
                 Zu besorgen
               </h2>
-              {uncheckedItems.map((item) => (
+              {uncheckedItems.map((item: any) => (
                 <ShoppingListItem key={item.id} item={item} />
               ))}
             </div>
@@ -71,7 +71,7 @@ export default async function ShoppingListPage() {
               <h2 className="text-sm font-label tracking-widest uppercase text-on-surface-variant ml-2 mb-2 mt-4">
                 Erledigt
               </h2>
-              {checkedItems.map((item) => (
+              {checkedItems.map((item: any) => (
                 <ShoppingListItem key={item.id} item={item} />
               ))}
             </div>

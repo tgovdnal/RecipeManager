@@ -285,7 +285,7 @@ export async function generateShoppingList() {
     // simplistic approach: just add missing ingredients.
     // real-world app would need parsing amounts and merging (e.g. 1 onion + 2 onions = 3 onions)
     const existing = await prisma.shoppingListItem.findMany();
-    const existingNames = new Set(existing.map((e) => e.name.toLowerCase()));
+    const existingNames = new Set(existing.map((e: { name: string }) => e.name.toLowerCase()));
 
     const toCreate = Array.from(allIngredients).filter(
       (ing) => !existingNames.has(ing.toLowerCase()),
