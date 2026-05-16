@@ -35,12 +35,7 @@ export default function Header() {
           >
             Wochenplaner
           </Link>
-          <Link
-            href="/recipe/create"
-            className="font-label text-sm tracking-wide text-on-background hover:text-primary transition-colors"
-          >
-            Rezept hinzufügen
-          </Link>
+
         </div>
         <div className="flex items-center gap-5">
           <Link
@@ -51,11 +46,6 @@ export default function Header() {
               add_circle
             </span>
           </Link>
-          <button className="hover:scale-[1.02] transition-transform duration-200">
-            <span className="material-symbols-outlined text-on-surface">
-              account_circle
-            </span>
-          </button>
         </div>
       </div>
     </nav>
