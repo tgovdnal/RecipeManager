@@ -1,14 +1,17 @@
 import { config } from "dotenv"
 import { defineConfig } from "prisma/config"
 import { resolve } from "path"
+import fs from "fs"
 
-// Explicitly load .env.local
-config({ path: resolve(__dirname, ".env.local") })
+const envLocalPath = resolve(__dirname, ".env.local")
+if (fs.existsSync(envLocalPath)) {
+  config({ path: envLocalPath })
+}
 
 const databaseUrl = process.env.DATABASE_URL
 
 if (!databaseUrl) {
-  throw new Error("DATABASE_URL is not set in .env.local")
+  throw new Error("DATABASE_URL is not set in environment or .env.local")
 }
 
 export default defineConfig({

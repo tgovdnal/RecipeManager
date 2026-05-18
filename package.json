@@ -6,7 +6,7 @@
     "install-deps": "npm install > npm_install2.log 2>&1",
     "dev": "next dev > npm_dev.log 2>&1",
     "build": "next build",
-    "start": "next start",
+    "start": "npx prisma db push && next start",
     "lint": "next lint"
   },
   "dependencies": {
