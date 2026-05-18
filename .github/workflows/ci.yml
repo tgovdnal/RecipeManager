@@ -10,6 +10,24 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: testdb
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    env:
+      DATABASE_URL: postgresql://postgres:password@localhost:5432/testdb
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -25,15 +43,11 @@ jobs:
 
       - name: Generate Prisma Client
         run: npx prisma generate
-        env:
-          DATABASE_URL: file:./test.db
+
       - name: Migrate Database
         run: npx prisma db push --accept-data-loss
-        env:
-          DATABASE_URL: file:./test.db
 
       - name: Build Next.js App
         run: npm run build
         env:
-          DATABASE_URL: file:./test.db
           NEXT_TELEMETRY_DISABLED: 1
